@@ -2,12 +2,15 @@
 /*
 Plugin Name: Kaleidico Custom Calculators
 Description: This is a plugin containing mortgage calculators for Kaleidico
-Version: 1.1.0
+Version: 1.2.0
 Author: Angelo Marasa
 Author URI: https://github.com/angelo-marasa
 */
 
-// Updated
+// Shortcodes
+require 'calculators/fha/shortcode.php';
+
+// Updater
 require 'puc/plugin-update-checker.php';
 
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
@@ -30,30 +33,16 @@ $myUpdateChecker = PucFactory::buildUpdateChecker(
 function kaleidico_custom_calculators_enqueue_scripts()
 {
     wp_enqueue_style('kaleidico-custom-calculators-style', plugin_dir_url(__FILE__) . 'src/css/kaleidico-custom-calculators.css');
-    wp_enqueue_script('kaleidico-custom-calculators-script', plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators.js', array('jquery'), '', true);
+    wp_enqueue_script('kaleidico-custom-calculators-fha-script', plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-fha.js', array('jquery'), '', true);
+    wp_enqueue_script('kaleidico-custom-calculators-ui-script', plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-ui.js', array('jquery'), '', true);
 }
-
 add_action('wp_enqueue_scripts', 'kaleidico_custom_calculators_enqueue_scripts');
 
-function kaleidico_custom_calculators_add_menu()
-{
-    add_menu_page('Kaleidico Custom Calculators Options', 'Kaleidico Custom Calculators', 'manage_options', 'kaleidico-custom-calculators', 'kaleidico_custom_calculators_options_page');
-}
 
-function kaleidico_custom_calculators_options_page()
-{
-    echo '<h1>Kaleidico Custom Calculators Options</h1>';
-}
-
-add_action('admin_menu', 'kaleidico_custom_calculators_add_menu');
-
-// Add the filter to add a link to the options page
-add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'add_plugin_page_settings_link');
-
-// Function to add the "Settings" link
 function add_plugin_page_settings_link($links)
 {
     $settings_link = '<a href="admin.php?page=kaleidico-custom-calculators">' . __('Settings') . '</a>';
     array_unshift($links, $settings_link);
     return $links;
 }
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'add_plugin_page_settings_link');

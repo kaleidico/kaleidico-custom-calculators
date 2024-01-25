@@ -1,1 +1,0 @@
-// Kaleidico Custom Calculators JavaScript

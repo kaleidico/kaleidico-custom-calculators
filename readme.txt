@@ -22,6 +22,9 @@ They are displayed by a shortcode.
 
 == Changelog ==
 
+= 1.2 = 
+* Completed the functionality for the FHA calculation
+
 = 1.1 =
 * Configuring updater.
 
