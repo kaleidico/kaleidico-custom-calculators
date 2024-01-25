@@ -2,6 +2,14 @@
 
 function kaleidico_fha_calculator_shortcode($atts)
 {
+
+    /*
+        Default shortcode: [fha_calculator]
+
+        Optional paramaters will overwrite what comes from the plugin settings
+
+        [fha_calculator home_price="200000" down_payment="3.5" loan_term="20" mortgage_interest_rate="5" est_monthly_property_tax="200" est_monthly_property_insurance="50" hoa_other_dues="200"]
+    */
     $attributes = shortcode_atts(array(
         'home_price' => get_field('home_price', 'option'),
         'down_payment' => get_field('down_payment', 'option'),
