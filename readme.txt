@@ -23,7 +23,7 @@ They are displayed by a shortcode.
 == Changelog ==
 
 = 1.1 =
-* Configuring updater
+* Configuring updater.
 
 = 1.0 =
 * First production release
