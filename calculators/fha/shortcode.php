@@ -22,71 +22,190 @@ function kaleidico_fha_calculator_shortcode($atts)
 
     ob_start();
 ?>
+    <div class="kaleidico-calculator fha-calculator">
+        <div class="calculator-white-section">
+            <h2 class="calculator-title">FHA Loan Calculator</h2>
 
-    <h2>FHA Mortgage Calculator</h2>
+            <div class="input-group">
+                <label for="home_price">Home Price</label>
+                <div class="input-container">
+                    <input type="text" name="home_price" class="input-currency" value="<?php echo esc_attr(number_format($attributes['home_price'])); ?>" />
+                    <span class="dollar-sign">$</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="down_payment">Down Payment <span class="fa fa-info-circle down-payment-tooltip-click" aria-hidden="true">
+                        <div class="down-payment-tooltip">
+                            <?php the_field('down_payment_tooltip', 'option'); ?>
+                        </div>
+                    </span>
+                </label>
+                <div class="input-container">
+                    <input type="text" class="input-percentage" name="down_payment" value="<?php echo esc_attr($attributes['down_payment']); ?>" />
+                    <span class="percent-sign">%</span>
+                </div>
+            </div>
+            <div class="radio-group">
+                Loan Term <span class="loan-term-tooltip-click" aria-hidden="true">
+                    <i class="fa fa-info-circle"></i>
+                    <label for="loan_term" class="loan-term-tooltip">
+                        <?php the_field('loan_term_tooltip', 'option'); ?>
+                    </label>
+                </span>
+                <div class="radio-container">
+                    <?php
+                    if (!empty($attributes['loan_term'])) {
+                        $loan_terms = explode(',', $attributes['loan_term']); // Split the string into an array
+                        $counter = 0; // Initialize counter
+                        foreach ($loan_terms as $term) {
+                    ?>
+                            <label class="radio-label">
+                                <input type="radio" name="loan_term" value="<?php echo esc_attr(trim($term)); ?>" <?php if ($counter === 0) echo 'checked'; ?>>
+                                <?php echo esc_html(trim($term)) . ' Years'; ?>
+                            </label>
+                            <?php
+                            $counter++; // Increment counter
+                        }
+                    } else {
+                        // Fallback to repeater field if no attribute is provided
+                        if (have_rows('terms', 'option')) :
+                            $counter = 0; // Initialize counter
+                            while (have_rows('terms', 'option')) : the_row();
+                                $term_label = get_sub_field('term_label');
+                                $term_value = get_sub_field('term_value');
+                            ?>
+                                <label class="radio-label">
+                                    <input type="radio" name="loan_term" value="<?php echo esc_attr($term_value); ?>" <?php if ($counter === 0) echo 'checked'; ?>>
+                                    <?php echo esc_html($term_label); ?>
+                                </label>
+                    <?php
+                                $counter++; // Increment counter
+                            endwhile;
+                        endif;
+                    }
+                    ?>
+                </div>
+            </div>
 
-    Home Price: <input type="text" name="home_price" value="<?php echo esc_attr(number_format($attributes['home_price'])); ?>" /><br />
-    Down Payment <span class="fa fa-info-circle down-payment-tooltip-hover" aria-hidden="true">
-        <div class="down-payment-tooltip">
-            Down Payment Tooltip: <?php the_field('down_payment_tooltip', 'option'); ?>
+            <div class="input-group">
+                <div class="input-container">
+                    <label for="mortage_interest_rate">Mortgage/Interest Rate</label>
+                    <input type="text" class="input-percentage" name="mortgage_interest_rate" value="<?php echo esc_attr($attributes['mortgage_interest_rate']); ?>" />
+                    <span class="percentage-sign">%</span>
+                </div>
+            </div>
+
+            <div class="calculator-grey-section">
+                <div class="calculator-results-simple">
+                    <div class="lc">
+                        <h3>Total Monthly Payment</h3>
+                        <div class="show-hide-calculator-results-advanced">
+                            <span class="show-advanced-text">Show Advanced</span>
+                            <span class="hide-advanced-text">Hide Advanced</span>
+                            <span class="show-hide-advanced-arrow"></span>
+                        </div>
+                    </div>
+                    <div class="rc">
+                        <div id="totalMonthlyPayment"></div>
+                    </div>
+                </div>
+                <div class="calculator-results-advanced">
+                    <div class="lc">
+                        <div class="input-group">
+                            <label for="est_monthly_property_tax">Est. Monthly Property Taxes</label>
+                            <div class="input-container">
+                                <input type="text" class="input-currency" name="est_monthly_property_tax" value="<?php echo esc_attr(number_format($attributes['est_monthly_property_tax'])); ?>" />
+                                <div class="dollar-sign">$</div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="est_monthly_property_insurance">Est. Monthly Prop. Insurance</label>
+                            <div class="input-container">
+                                <input type="text" class="input-currency" name="est_monthly_property_insurance" value="<?php echo esc_attr(number_format($attributes['est_monthly_property_insurance'])); ?>" />
+                                <div class="dollar-sign">$</div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="hoa_other_dues">HOA/Other Dues</label>
+                            <div class="input-container">
+                                <input type="text" class="input-currency" name="hoa_other_dues" value="<?php echo esc_attr(number_format($attributes['hoa_other_dues'])); ?>" />
+                                <div class="dollar-sign">$</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mc">
+                        <div class="vertical-divider"></div>
+                    </div>
+                    <div class="rc">
+                        <div class="advanced-row">
+                            <div class="advanced-label">
+                                Principal &amp; Interest Payment
+                            </div>
+                            <div class="advanced-total">
+                                <div id="principalInterestPayment"></div>
+                            </div>
+                        </div>
+                        <div class="advanced-row">
+                            <div class="advanced-label">
+                                Monthly Mortgage Insurance
+                            </div>
+                            <div class="advanced-total">
+                                <div id="monthlyMortgageInsurance"></div>
+                            </div>
+                        </div>
+                        <div class="advanced-eyebrow-label-row">
+                            <div class="advanced-eyebrow-label">
+                                Base Loan Amount
+                            </div>
+                        </div>
+                        <div class="advanced-row">
+                            <div class="advanced-label">
+                                FHA Upfront Mortgage
+                            </div>
+                            <div class="advanced-total">
+                                <div id="baseLoanAmount"></div>
+                            </div>
+                        </div>
+                        <div class="advanced-row">
+                            <div class="advanced-label">
+                                FHA Upfront MI Amount
+                            </div>
+                            <div class="advanced-total">
+                                <div id="upfrontMIPAmount"></div>
+                            </div>
+                        </div>
+                        <div class="advanced-row no-bottom-border">
+                            <div class="advanced-label">
+                                Final Loan Amount
+                            </div>
+                            <div class="advanced-total">
+                                <div id="finalLoanAmount"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php $cta_button = get_field('cta_button', 'option'); ?>
+                <?php if ($cta_button) { ?>
+                    <div class="calculator-cta">
+                        <a href="<?php echo $cta_button['url']; ?>" target="<?php echo $cta_button['target']; ?>"><?php echo $cta_button['title']; ?></a>
+                    </div>
+                <?php } ?>
+            </div>
         </div>
-    </span>
-    <input type="text" name="down_payment" value="<?php echo esc_attr($attributes['down_payment']); ?>" /><br />
-
-    Loan Term <span class="loan-term-tooltip-hover" aria-hidden="true">
-        <i class="fa fa-info-circle"></i>
-        <div class="loan-term-tooltip">
-            Loan Term Tooltip: <?php the_field('loan_term_tooltip', 'option'); ?><br />
+    </div>
+    <?php $disclaimer_text = get_field('disclaimer_text', 'option');
+    if ($disclaimer_text) { ?>
+        <div class="kaleidico-calculator-disclaimer">
+            <div class="show-hide-kaleidico-calculator-disclaimer">
+                <span class="show-disclaimer-text">Show Disclaimer</span>
+                <span class="hide-disclaimer-text">Hide Disclaimer</span>
+                <span class="show-hide-disclaimer-arrow"></span>
+            </div>
+            <div class="kaleidico-calculator-disclaimer-text">
+                <?php echo $disclaimer_text; ?>
+            </div>
         </div>
-    </span>
-    <br />
-
-    <?php
-    if (!empty($attributes['loan_term'])) {
-        $loan_terms = explode(',', $attributes['loan_term']); // Split the string into an array
-        $counter = 0; // Initialize counter
-        foreach ($loan_terms as $term) {
-    ?>
-            <label>
-                <input type="radio" name="loan_term" value="<?php echo esc_attr(trim($term)); ?>" <?php if ($counter === 0) echo 'checked'; ?>>
-                <?php echo esc_html(trim($term)) . ' Years'; ?>
-            </label><br>
-            <?php
-            $counter++; // Increment counter
-        }
-    } else {
-        // Fallback to repeater field if no attribute is provided
-        if (have_rows('terms', 'option')) :
-            $counter = 0; // Initialize counter
-            while (have_rows('terms', 'option')) : the_row();
-                $term_label = get_sub_field('term_label');
-                $term_value = get_sub_field('term_value');
-            ?>
-                <label>
-                    <input type="radio" name="loan_term" value="<?php echo esc_attr($term_value); ?>" <?php if ($counter === 0) echo 'checked'; ?>>
-                    <?php echo esc_html($term_label); ?>
-                </label><br>
-    <?php
-                $counter++; // Increment counter
-            endwhile;
-        endif;
-    }
-    ?>
-
-
-    Mortgage/Interest Rate: <input type="text" name="mortgage_interest_rate" value="<?php echo esc_attr($attributes['mortgage_interest_rate']); ?>" /><br />
-    Est. Monthly Property Tax: <input type="text" name="est_monthly_property_tax" value="<?php echo esc_attr(number_format($attributes['est_monthly_property_tax'])); ?>" /><br />
-    Est. Monthly Property Insurance: <input type="text" name="est_monthly_property_insurance" value="<?php echo esc_attr(number_format($attributes['est_monthly_property_insurance'])); ?>" /><br />
-    HOA/Other Dues: <input type="text" name="hoa_other_dues" value="<?php echo esc_attr(number_format($attributes['hoa_other_dues'])); ?>" /><br /><br /><br />
-    <div id="totalMonthlyPayment"></div>
-    <div id="principalInterestPayment"></div>
-    <div id="monthlyMortgageInsurance"></div>
-    <div id="baseLoanAmount"></div>
-    <div id="upfrontMIPAmount"></div>
-    <div id="finalLoanAmount"></div>
-
-
-
+    <?php } ?>
 <?php
     $output = ob_get_clean();
     return $output;

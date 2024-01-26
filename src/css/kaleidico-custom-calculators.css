@@ -1,33 +1,41 @@
 /* Kaleidico Custom Calculators Stylesheet */
 
-.down-payment-tooltip-hover {
-	position: relative;
-	display: inline-block;
+:root {
+	--text-color: #444;
+	--primary-color: #1b75bc;
+	--secondary-color: #024c87;
+	--border-color: #ababab;
+	--input-border-color: #949494;
 }
-
-.down-payment-tooltip {
-	display: none;
-	position: absolute;
-	z-index: 10;
+.kaleidico-calculator {
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+	color: var(--text-color);
 }
-
-.down-payment-tooltip-hover:hover .down-payment-tooltip {
-	display: block;
-	width: 400px;
+.kaleidico-calculator .calculator-white-section {
+	background: white;
+	padding: 32px 48px 40px 48px;
 }
-
-.loan-term-tooltip-hover {
-	position: relative;
-	display: inline-block;
+.kaleidico-calculator .calculator-white-section h2 {
+	font-size: 32px;
+	color: var(--primary-color);
+	letter-spacing: 0;
+	font-weight: bold;
+	margin-bottom: 16px;
 }
-
-.loan-term-tooltip {
-	display: none;
-	position: absolute;
-	z-index: 10;
+.kaleidico-calculator .input-group {
+	margin-bottom: 38px;
 }
-
-.loan-term-tooltip-hover:hover .loan-term-tooltip {
-	display: block;
-	width: 400px;
+.kaleidico-calculator .input-group label {
+	display: flex;
+	font-size: 16px;
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+.kaleidico-calculator .input-group input {
+	border: 1px solid var(--input-border-color);
+	padding: 17px 17px 17px 16px;
+	width: 100%;
+	border-radius: 8px;
+	font-size: 18px;
 }

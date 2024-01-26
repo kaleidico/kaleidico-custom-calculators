@@ -70,34 +70,24 @@ function calculateAndDisplayMortgageDetails() {
 	// Display the formatted results
 	document.getElementById(
 		"totalMonthlyPayment"
-	).innerText = `Total Monthly Payment ${currencyFormatter.format(
-		totalMonthlyPayment
-	)}`;
+	).innerText = `${currencyFormatter.format(totalMonthlyPayment)}`;
 	document.getElementById(
 		"principalInterestPayment"
-	).innerText = `Principal & Interest Payment ${currencyFormatter.format(
-		principleInterestPayment
-	)}`;
+	).innerText = `${currencyFormatter.format(principleInterestPayment)}`;
 	document.getElementById(
 		"monthlyMortgageInsurance"
-	).innerText = `Monthly Mortgage Insurance ${currencyFormatterNoDecimals.format(
+	).innerText = `${currencyFormatterNoDecimals.format(
 		monthlyMortgageInsurance
 	)}`;
 	document.getElementById(
 		"baseLoanAmount"
-	).innerText = `Base Loan Amount ${currencyFormatterNoDecimals.format(
-		baseLoanAmount
-	)}`;
+	).innerText = `${currencyFormatterNoDecimals.format(baseLoanAmount)}`;
 	document.getElementById(
 		"upfrontMIPAmount"
-	).innerText = `FHA Upfront Mortgage Insurance Amount ${currencyFormatterNoDecimals.format(
-		upfrontMIPAmount
-	)}`;
+	).innerText = `${currencyFormatterNoDecimals.format(upfrontMIPAmount)}`;
 	document.getElementById(
 		"finalLoanAmount"
-	).innerText = `Final Loan Amount ${currencyFormatterNoDecimals.format(
-		finalLoanAmount
-	)}`;
+	).innerText = `${currencyFormatterNoDecimals.format(finalLoanAmount)}`;
 }
 
 // Trigger calculation on page load
