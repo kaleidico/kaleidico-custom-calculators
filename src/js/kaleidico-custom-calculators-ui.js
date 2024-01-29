@@ -9,4 +9,10 @@ jQuery(document).ready(function ($) {
 		$(".hide-advanced-text").hide();
 		$(".show-advanced-text").show();
 	});
+	$(".down-payment-tooltip-click").on("click", function () {
+		$(".down-payment-tooltip").toggleClass("clicked");
+	});
+	$(".loan-term-tooltip-click").on("click", function () {
+		$(".loan-term-tooltip").toggleClass("clicked");
+	});
 });

@@ -67,6 +67,7 @@
 }
 .kaleidico-calculator .tooltip-group i {
 	color: var(--primary-color);
+	cursor: pointer;
 }
 .kaleidico-calculator .tooltip {
 	visibility: hidden;
@@ -84,10 +85,29 @@
 	transform: translateY(-50%);
 	opacity: 0;
 	transition: all 300ms ease-in-out;
+	z-index: 99999;
 }
 .kaleidico-calculator .tooltip.clicked {
 	visibility: visible;
 	opacity: 1;
+}
+.tooltip:before {
+	display: block;
+	height: 28px;
+	width: 28px;
+	background-color: inherit;
+	border: inherit;
+	position: absolute;
+	left: -10px;
+	top: 50%;
+	clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+	transform: rotate(45deg);
+	border-radius: 0 0 0 0.5em;
+	content: "";
+}
+.down-payment-tooltip-click {
+	position: relative;
+	bottom: 2px;
 }
 .kaleidico-calculator label {
 	font-weight: 600;
@@ -135,6 +155,7 @@
 	font-size: 20px;
 	color: var(--text-color);
 	margin-bottom: 0;
+	line-height: 22px;
 }
 .kaleidico-calculator .calculator-results-simple {
 	display: flex;
@@ -217,4 +238,48 @@
 .kaleidico-calculator .button {
 	border-radius: 8px;
 	margin-top: 24px;
+}
+.kaleidico-calculator .show-hide-calculator-results-advanced {
+	margin-top: -16px;
+}
+@media (max-width: 870px) {
+	.kaleidico-calculator .calculator-results-advanced {
+		display: block;
+	}
+	.kaleidico-calculator .calculator-results-advanced .rc {
+		margin-top: 24px;
+	}
+}
+@media (max-width: 639px) {
+	.kaleidico-calculator .radio-group {
+		display: block;
+	}
+	.kaleidico-calculator input[type="radio"] + label {
+		margin-bottom: 16px;
+	}
+	.kaleidico-calculator .calculator-white-section,
+	.kaleidico-calculator .calculator-grey-section {
+		padding: 24px 16px;
+	}
+	.kaleidico-calculator .show-hide-calculator-results-advanced {
+		margin-top: 0px;
+	}
+	.kaleidico-calculator-disclaimer-text {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.calculator-results-simple {
+		display: block !important;
+		margin-bottom: 16px;
+	}
+	.down-payment-tooltip-click {
+		bottom: -2px;
+	}
+	.kaleidico-calculator .tooltip {
+		width: 250px !important;
+		font-size: 13px !important;
+	}
+	.kaleidico-calculator .tooltip::before {
+		top: 49%;
+	}
 }

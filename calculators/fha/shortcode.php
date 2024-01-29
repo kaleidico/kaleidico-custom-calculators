@@ -51,7 +51,7 @@ function kaleidico_fha_calculator_shortcode($atts)
             <div class="tooltip-label-icon-container">
                 <label for="loan_term">Loan Term</label>
                 <span class="tooltip-group">
-                    <i class="fa fa-info-circle down-payment-tooltip-click" aria-hidden="true"></i>
+                    <i class="fa fa-info-circle loan-term-tooltip-click" aria-hidden="true"></i>
                     <div class="loan-term-tooltip tooltip">
                         <?php the_field('loan_term_tooltip', 'option'); ?>
                     </div>
@@ -102,14 +102,14 @@ function kaleidico_fha_calculator_shortcode($atts)
             <div class="calculator-results-simple">
                 <div class="lc">
                     <h3>Total Monthly Payment</h3>
-                    <div class="show-hide-calculator-results-advanced">
-                        <span class="show-advanced-text">Show Advanced <i class="fa fa-chevron-down"></i></span>
-                        <span class="hide-advanced-text">Hide Advanced <i class="fa fa-chevron-up"></i></span>
-                    </div>
                 </div>
                 <div class="rc">
                     <div id="totalMonthlyPayment"></div>
                 </div>
+            </div>
+            <div class="show-hide-calculator-results-advanced">
+                <span class="show-advanced-text">Show Advanced <i class="fa fa-chevron-down"></i></span>
+                <span class="hide-advanced-text">Hide Advanced <i class="fa fa-chevron-up"></i></span>
             </div>
             <div class="calculator-results-advanced-container">
                 <div class="calculator-results-advanced">
