@@ -34,57 +34,59 @@ function kaleidico_fha_calculator_shortcode($atts)
                 </div>
             </div>
             <div class="input-group">
-                <label for="down_payment">Down Payment <span class="fa fa-info-circle down-payment-tooltip-click" aria-hidden="true">
-                        <div class="down-payment-tooltip">
+                <div class="tooltip-label-icon-container">
+                    <label for="down_payment">Down Payment</label>
+                    <span class="tooltip-group">
+                        <i class="fa fa-info-circle down-payment-tooltip-click" aria-hidden="true"></i>
+                        <div class="down-payment-tooltip tooltip">
                             <?php the_field('down_payment_tooltip', 'option'); ?>
                         </div>
                     </span>
-                </label>
+                </div>
                 <div class="input-container">
                     <input type="text" class="input-percentage" name="down_payment" value="<?php echo esc_attr($attributes['down_payment']); ?>" />
-                    <span class="percent-sign">%</span>
+                    <span class="percentage-sign">%</span>
                 </div>
             </div>
-            <div class="radio-group">
-                Loan Term <span class="loan-term-tooltip-click" aria-hidden="true">
-                    <i class="fa fa-info-circle"></i>
-                    <label for="loan_term" class="loan-term-tooltip">
+            <div class="tooltip-label-icon-container">
+                <label for="loan_term">Loan Term</label>
+                <span class="tooltip-group">
+                    <i class="fa fa-info-circle down-payment-tooltip-click" aria-hidden="true"></i>
+                    <div class="loan-term-tooltip tooltip">
                         <?php the_field('loan_term_tooltip', 'option'); ?>
-                    </label>
+                    </div>
                 </span>
-                <div class="radio-container">
-                    <?php
-                    if (!empty($attributes['loan_term'])) {
-                        $loan_terms = explode(',', $attributes['loan_term']); // Split the string into an array
-                        $counter = 0; // Initialize counter
-                        foreach ($loan_terms as $term) {
-                    ?>
-                            <label class="radio-label">
-                                <input type="radio" name="loan_term" value="<?php echo esc_attr(trim($term)); ?>" <?php if ($counter === 0) echo 'checked'; ?>>
-                                <?php echo esc_html(trim($term)) . ' Years'; ?>
-                            </label>
-                            <?php
-                            $counter++; // Increment counter
-                        }
-                    } else {
-                        // Fallback to repeater field if no attribute is provided
-                        if (have_rows('terms', 'option')) :
-                            $counter = 0; // Initialize counter
-                            while (have_rows('terms', 'option')) : the_row();
-                                $term_label = get_sub_field('term_label');
-                                $term_value = get_sub_field('term_value');
-                            ?>
-                                <label class="radio-label">
-                                    <input type="radio" name="loan_term" value="<?php echo esc_attr($term_value); ?>" <?php if ($counter === 0) echo 'checked'; ?>>
-                                    <?php echo esc_html($term_label); ?>
-                                </label>
-                    <?php
-                                $counter++; // Increment counter
-                            endwhile;
-                        endif;
+            </div>
+            <div class="radio-group">
+                <?php
+                if (!empty($attributes['loan_term'])) {
+                    $loan_terms = explode(',', $attributes['loan_term']); // Split the string into an array
+                    $counter = 0; // Initialize counter
+                    foreach ($loan_terms as $term) {
+                ?>
+                        <input type="radio" id="<?php echo esc_attr(trim($term)); ?>" name="loan_term" value="<?php echo esc_attr(trim($term)); ?>" <?php if ($counter === 0) echo 'checked'; ?>>
+                        <label class="radio-label" for="<?php echo esc_attr(trim($term)); ?>"><?php echo esc_html(trim($term)) . ' Years'; ?></label>
+                        <?php
+                        $counter++; // Increment counter
                     }
-                    ?>
-                </div>
+                } else {
+                    // Fallback to repeater field if no attribute is provided
+                    if (have_rows('terms', 'option')) :
+                        $counter = 0; // Initialize counter
+                        while (have_rows('terms', 'option')) : the_row();
+                            $term_label = get_sub_field('term_label');
+                            $term_value = get_sub_field('term_value');
+                        ?>
+
+                            <input type="radio" id="<?php echo esc_attr(trim($term_value)); ?>" name="loan_term" value="<?php echo esc_attr($term_value); ?>" <?php if ($counter === 0) echo 'checked'; ?>>
+                            <label class="radio-label" for="<?php echo esc_attr(trim($term_value)); ?>"><?php echo esc_html($term_label); ?></label>
+
+                <?php
+                            $counter++; // Increment counter
+                        endwhile;
+                    endif;
+                }
+                ?>
             </div>
 
             <div class="input-group">
@@ -94,21 +96,22 @@ function kaleidico_fha_calculator_shortcode($atts)
                     <span class="percentage-sign">%</span>
                 </div>
             </div>
+        </div>
 
-            <div class="calculator-grey-section">
-                <div class="calculator-results-simple">
-                    <div class="lc">
-                        <h3>Total Monthly Payment</h3>
-                        <div class="show-hide-calculator-results-advanced">
-                            <span class="show-advanced-text">Show Advanced</span>
-                            <span class="hide-advanced-text">Hide Advanced</span>
-                            <span class="show-hide-advanced-arrow"></span>
-                        </div>
-                    </div>
-                    <div class="rc">
-                        <div id="totalMonthlyPayment"></div>
+        <div class="calculator-grey-section">
+            <div class="calculator-results-simple">
+                <div class="lc">
+                    <h3>Total Monthly Payment</h3>
+                    <div class="show-hide-calculator-results-advanced">
+                        <span class="show-advanced-text">Show Advanced <i class="fa fa-chevron-down"></i></span>
+                        <span class="hide-advanced-text">Hide Advanced <i class="fa fa-chevron-up"></i></span>
                     </div>
                 </div>
+                <div class="rc">
+                    <div id="totalMonthlyPayment"></div>
+                </div>
+            </div>
+            <div class="calculator-results-advanced-container">
                 <div class="calculator-results-advanced">
                     <div class="lc">
                         <div class="input-group">
@@ -184,23 +187,18 @@ function kaleidico_fha_calculator_shortcode($atts)
                         </div>
                     </div>
                 </div>
-                <?php $cta_button = get_field('cta_button', 'option'); ?>
-                <?php if ($cta_button) { ?>
-                    <div class="calculator-cta">
-                        <a href="<?php echo $cta_button['url']; ?>" target="<?php echo $cta_button['target']; ?>"><?php echo $cta_button['title']; ?></a>
-                    </div>
-                <?php } ?>
             </div>
+            <?php $cta_button = get_field('cta_button', 'option'); ?>
+            <?php if ($cta_button) { ?>
+                <div class="calculator-cta">
+                    <a class="button" href="<?php echo $cta_button['url']; ?>" target="<?php echo $cta_button['target']; ?>"><?php echo $cta_button['title']; ?></a>
+                </div>
+            <?php } ?>
         </div>
     </div>
     <?php $disclaimer_text = get_field('disclaimer_text', 'option');
     if ($disclaimer_text) { ?>
         <div class="kaleidico-calculator-disclaimer">
-            <div class="show-hide-kaleidico-calculator-disclaimer">
-                <span class="show-disclaimer-text">Show Disclaimer</span>
-                <span class="hide-disclaimer-text">Hide Disclaimer</span>
-                <span class="show-hide-disclaimer-arrow"></span>
-            </div>
             <div class="kaleidico-calculator-disclaimer-text">
                 <?php echo $disclaimer_text; ?>
             </div>

@@ -6,6 +6,7 @@
 	--secondary-color: #024c87;
 	--border-color: #ababab;
 	--input-border-color: #949494;
+	--primary-font: "Poppins", sans-serif;
 }
 .kaleidico-calculator {
 	border: 1px solid var(--border-color);
@@ -14,7 +15,7 @@
 }
 .kaleidico-calculator .calculator-white-section {
 	background: white;
-	padding: 32px 48px 40px 48px;
+	padding: 32px 48px 20px 48px;
 }
 .kaleidico-calculator .calculator-white-section h2 {
 	font-size: 32px;
@@ -25,6 +26,7 @@
 }
 .kaleidico-calculator .input-group {
 	margin-bottom: 38px;
+	position: relative;
 }
 .kaleidico-calculator .input-group label {
 	display: flex;
@@ -34,8 +36,185 @@
 }
 .kaleidico-calculator .input-group input {
 	border: 1px solid var(--input-border-color);
-	padding: 17px 17px 17px 16px;
+	padding: 17px 17px 17px 36px;
 	width: 100%;
 	border-radius: 8px;
 	font-size: 18px;
+}
+.kaleidico-calculator .input-group .input-percentage {
+	padding-left: 17px;
+}
+.kaleidico-calculator .input-group .input-container .dollar-sign {
+	position: absolute;
+	left: 16px;
+	font-size: 18px;
+	color: #757575;
+	top: 53%;
+}
+.kaleidico-calculator .input-group .input-container .percentage-sign {
+	position: absolute;
+	right: 16px;
+	font-size: 18px;
+	color: #757575;
+	top: 53%;
+}
+.kaleidico-calculator .tooltip-label-icon-container {
+	display: flex;
+	column-gap: 6px;
+}
+.kaleidico-calculator .tooltip-group {
+	position: relative;
+}
+.kaleidico-calculator .tooltip-group i {
+	color: var(--primary-color);
+}
+.kaleidico-calculator .tooltip {
+	visibility: hidden;
+	position: absolute;
+	width: 270px;
+	left: 40px;
+	background-color: var(--secondary-color);
+	padding: 16px;
+	color: white;
+	font-family: var(--primary-font);
+	line-height: normal;
+	font-size: 14px;
+	border-radius: 8px;
+	top: 0%;
+	transform: translateY(-50%);
+	opacity: 0;
+	transition: all 300ms ease-in-out;
+}
+.kaleidico-calculator .tooltip.clicked {
+	visibility: visible;
+	opacity: 1;
+}
+.kaleidico-calculator label {
+	font-weight: 600;
+}
+.kaleidico-calculator .radio-group {
+	display: flex;
+	column-gap: 16px;
+	margin-bottom: 32px;
+	margin-top: 8px;
+}
+.kaleidico-calculator input[type="radio"] {
+	display: none;
+}
+.kaleidico-calculator .radio-label {
+	display: flex;
+	align-items: center;
+	font-weight: normal;
+	cursor: pointer;
+	border: 1px solid var(--border-color);
+	padding: 8px 16px;
+	flex-grow: 1;
+	border-radius: 8px;
+	transition: all 300ms ease;
+}
+.kaleidico-calculator .radio-label:hover {
+	background: #f5f5f5;
+}
+.kaleidico-calculator input[type="radio"] + .radio-label:before {
+	content: "\f10c";
+	font-family: "FontAwesome", sans-serif;
+	color: var(--primary-color);
+	font-size: 28px;
+	margin-right: 8px;
+}
+.kaleidico-calculator input[type="radio"]:checked + .radio-label:before {
+	content: "\f192";
+	font-family: "FontAwesome", sans-serif;
+}
+.kaleidico-calculator .calculator-grey-section {
+	background-color: #f5f5f5;
+	padding: 32px 48px 20px 48px;
+	border-top: 1px solid var(--border-color);
+}
+.kaleidico-calculator h3 {
+	font-size: 20px;
+	color: var(--text-color);
+	margin-bottom: 0;
+}
+.kaleidico-calculator .calculator-results-simple {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.kaleidico-calculator .show-advanced-text,
+.kaleidico-calculator .hide-advanced-text {
+	font-weight: 600;
+	font-size: 16px;
+	color: var(--primary-color);
+	cursor: pointer;
+}
+.kaleidico-calculator .hide-advanced-text {
+	display: none;
+}
+.kaleidico-calculator #totalMonthlyPayment {
+	font-size: 36px;
+	color: var(--secondary-color);
+	font-weight: bold;
+}
+.kaleidico-calculator .calculator-results-advanced {
+	justify-content: space-between;
+	display: flex;
+	margin-top: 35px;
+}
+.kaleidico-calculator .calculator-results-advanced-container {
+	display: none;
+}
+.kaleidico-calculator .calculator-results-advanced .input-group:last-child {
+	margin-bottom: 0;
+}
+.kaleidico-calculator .calculator-results-advanced .vertical-divider {
+	height: 100%;
+	border: 0;
+	width: 1px;
+	background: var(--border-color);
+}
+.kaleidico-calculator .calculator-results-advanced .advanced-row {
+	display: flex;
+	justify-content: space-between;
+	column-gap: 20px;
+	margin-bottom: 16px;
+	border-bottom: 1px solid var(--border-color);
+	padding-bottom: 16px;
+	align-items: end;
+}
+.kaleidico-calculator .calculator-results-advanced .advanced-row:last-child {
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border-bottom: 0;
+}
+.kaleidico-calculator .calculator-results-advanced .advanced-label {
+	max-width: 200px;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 600;
+}
+.kaleidico-calculator .calculator-results-advanced .input-group {
+	margin-bottom: 16px;
+}
+.kaleidico-calculator .advanced-eyebrow-label {
+	font-size: 12px;
+	letter-spacing: 1px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: var(--primary-color);
+}
+.kaleidico-calculator .advanced-total {
+	font-size: 14px;
+	color: var(--text-color);
+}
+.kaleidico-calculator-disclaimer-text {
+	padding: 16px 48px 16px 48px;
+}
+.kaleidico-calculator-disclaimer-text p {
+	font-size: 14px;
+	line-height: normal;
+}
+.kaleidico-calculator .button {
+	border-radius: 8px;
+	margin-top: 24px;
 }
