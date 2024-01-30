@@ -199,6 +199,12 @@ function kaleidico_fha_calculator_shortcode($atts)
     <?php $disclaimer_text = get_field('disclaimer_text', 'option');
     if ($disclaimer_text) { ?>
         <div class="kaleidico-calculator-disclaimer">
+            <div class="kaleidico-calculator-show-disclaimer-text">
+                Show Disclaimer <i class="fa fa-chevron-down"></i>
+            </div>
+            <div class="kaleidico-calculator-hide-disclaimer-text">
+                Hide Disclaimer <i class="fa fa-chevron-up"></i>
+            </div>
             <div class="kaleidico-calculator-disclaimer-text">
                 <?php echo $disclaimer_text; ?>
             </div>
