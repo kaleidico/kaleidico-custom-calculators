@@ -21,6 +21,8 @@ They are displayed by a shortcode.
 
 
 == Changelog ==
+= 1.3.1 = 
+* Fixed a QC issue with the expanding disclaimer box.
 
 = 1.3 = 
 * Front-end complete for QC
