@@ -22,6 +22,9 @@ They are displayed by a shortcode.
 
 == Changelog ==
 
+= 1.3 = 
+* Front-end complete for QC
+
 = 1.2 = 
 * Completed the functionality for the FHA calculation
 
