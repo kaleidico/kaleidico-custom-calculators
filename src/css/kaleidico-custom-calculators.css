@@ -99,7 +99,7 @@
 	border: inherit;
 	position: absolute;
 	left: -10px;
-	top: 50%;
+	top: 49.5%;
 	clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
 	transform: rotate(45deg);
 	border-radius: 0 0 0 0.5em;
@@ -181,6 +181,7 @@
 	justify-content: space-between;
 	display: flex;
 	margin-top: 35px;
+	column-gap: 20px;
 }
 .kaleidico-calculator .calculator-results-advanced-container {
 	display: none;

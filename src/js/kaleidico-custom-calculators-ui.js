@@ -9,11 +9,19 @@ jQuery(document).ready(function ($) {
 		$(".hide-advanced-text").hide();
 		$(".show-advanced-text").show();
 	});
-	$(".down-payment-tooltip-click").on("click", function () {
-		$(".down-payment-tooltip").toggleClass("clicked");
-	});
-	$(".loan-term-tooltip-click").on("click", function () {
+	$(".loan-term-tooltip-click").on("click", function (e) {
+		e.stopPropagation();
 		$(".loan-term-tooltip").toggleClass("clicked");
+		$(".down-payment-tooltip").removeClass("clicked"); // Close the other tooltip
+	});
+	$(".down-payment-tooltip-click").on("click", function (e) {
+		e.stopPropagation();
+		$(".down-payment-tooltip").toggleClass("clicked");
+		$(".loan-term-tooltip").removeClass("clicked"); // Close the other tooltip
+	});
+	$("body").on("click", function () {
+		$(".loan-term-tooltip").removeClass("clicked");
+		$(".down-payment-tooltip").removeClass("clicked");
 	});
 	$(".kaleidico-calculator-show-disclaimer-text").on("click", function () {
 		$(".kaleidico-calculator-disclaimer-text").slideDown();
