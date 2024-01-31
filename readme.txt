@@ -21,6 +21,9 @@ They are displayed by a shortcode.
 
 
 == Changelog ==
+= 1.3.2 =
+* Fixed QC issues with Tooltips and spacing on Advanced Results columns.
+
 = 1.3.1 = 
 * Fixed a QC issue with the expanding disclaimer box.
 
