@@ -21,6 +21,12 @@ They are displayed by a shortcode.
 
 
 == Changelog ==
+= 2.0.1 =
+* Mortgage Payment Calculator Front-end complete
+
+= 2.0.0 =
+* Added the mortgage payment calculation
+
 = 1.3.2 =
 * Fixed QC issues with Tooltips and spacing on Advanced Results columns.
 

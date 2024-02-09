@@ -41,7 +41,8 @@
 	border-radius: 8px;
 	font-size: 18px;
 }
-.kaleidico-calculator .input-group .input-percentage {
+.kaleidico-calculator .input-group .input-percentage,
+.kaleidico-calculator .input-group .input-years {
 	padding-left: 17px;
 }
 .kaleidico-calculator .input-group .input-container .dollar-sign {
@@ -172,7 +173,7 @@
 .kaleidico-calculator .hide-advanced-text {
 	display: none;
 }
-.kaleidico-calculator #totalMonthlyPayment {
+.kaleidico-calculator .monthly-payment {
 	font-size: 36px;
 	color: var(--secondary-color);
 	font-weight: bold;
@@ -262,6 +263,13 @@
 	}
 	.kaleidico-calculator .calculator-results-advanced .rc {
 		margin-top: 24px;
+	}
+	.kaleidico-calculator
+		.calculator-results-advanced
+		.advanced-row.underlined-advanced-row {
+		border-bottom: 1px solid var(--border-color);
+		padding-bottom: 16px;
+		margin-bottom: 8px;
 	}
 }
 @media (max-width: 639px) {

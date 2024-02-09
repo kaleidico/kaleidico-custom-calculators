@@ -104,7 +104,7 @@ function kaleidico_fha_calculator_shortcode($atts)
                     <h3>Total Monthly Payment</h3>
                 </div>
                 <div class="rc">
-                    <div id="totalMonthlyPayment"></div>
+                    <div id="totalMonthlyPayment" class="monthly-payment"></div>
                 </div>
             </div>
             <div class="show-hide-calculator-results-advanced">
