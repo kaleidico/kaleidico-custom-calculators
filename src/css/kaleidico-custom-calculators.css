@@ -203,7 +203,7 @@
 	margin-bottom: 16px;
 	border-bottom: 1px solid var(--border-color);
 	padding-bottom: 16px;
-	align-items: end;
+	align-items: center;
 }
 .kaleidico-calculator .calculator-results-advanced .advanced-row:last-child {
 	padding-bottom: 0;

@@ -21,6 +21,9 @@ They are displayed by a shortcode.
 
 
 == Changelog ==
+= 2.1.0 =
+* Mortgage Payment Calculator Front-end tweak on results section
+
 = 2.0.1 =
 * Mortgage Payment Calculator Front-end complete
 
