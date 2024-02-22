@@ -256,7 +256,10 @@
 .kaleidico-calculator-hide-disclaimer-text {
 	display: none;
 }
-
+.kaleidico-calculator .advanced-rows {
+	width: 100%;
+	max-width: 100%;
+}
 @media (max-width: 870px) {
 	.kaleidico-calculator .calculator-results-advanced {
 		display: block;

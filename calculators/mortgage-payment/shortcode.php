@@ -46,9 +46,17 @@ function mortgage_payment_calculator_shortcode($atts)
                 </div>
             </div>
             <div class="input-group">
-                <label for="down_payment_percentage">
-                    Down Payment
-                </label>
+                <div class="tooltip-label-icon-container">
+                    <label for="down_payment_percentage">
+                        Down Payment
+                    </label>
+                    <span class="tooltip-group">
+                        <i class="fa fa-info-circle down-payment-tooltip-click" aria-hidden="true"></i>
+                        <div class="down-payment-tooltip tooltip">
+                            <?php the_field('mortgage_payment_down_payment_tooltip', 'option'); ?>
+                        </div>
+                    </span>
+                </div>
                 <div class="input-container">
                     <input type="text" name="down_payment_percentage" class="input-percentage" value="<?php echo esc_attr(($attributes['down_payment_percentage'])); ?>" />
                     <span class="percentage-sign">%</span>
@@ -77,7 +85,7 @@ function mortgage_payment_calculator_shortcode($atts)
             </div>
             <div class="calculator-results-advanced-container">
                 <div class="calculator-results-advanced">
-                    <div class="lc">
+                    <div class="advanced-rows">
                         <div class="advanced-row">
                             <div class="advanced-label">
                                 Principal &amp; Interest Payment
@@ -119,15 +127,8 @@ function mortgage_payment_calculator_shortcode($atts)
                             </div>
                         </div>
                     </div>
-                    <div class="mc">
-                        <div class="vertical-divider"></div>
-                    </div>
-                    <div class="rc">
-                        <div class="advanced-row">
-                            <div class="advanced-label">
-                                Total Payments Per Year
-                            </div>
-                            <div class="advanced-total">
+                    <!--
+                    <div class="advanced-total">
                                 <span>12</span>
                             </div>
                         </div>
@@ -180,6 +181,7 @@ function mortgage_payment_calculator_shortcode($atts)
                             </div>
                         </div>
                     </div>
+-->
                 </div>
 
                 <?php $cta_button = get_field('cta_button', 'option'); ?>
