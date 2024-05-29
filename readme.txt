@@ -21,6 +21,9 @@ They are displayed by a shortcode.
 
 
 == Changelog ==
+= 2.2.0 =
+* Added affordability calculator
+
 = 2.1.1 =
 * Added tooltip to the front end of Down Payment on Mortgage Payment Calculator
 
