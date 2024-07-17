@@ -21,6 +21,9 @@ They are displayed by a shortcode.
 
 
 == Changelog ==
+= 2.3 =
+* Styled Affordability calculator
+
 = 2.2.0 =
 * Added affordability calculator
 
