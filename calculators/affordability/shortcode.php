@@ -118,7 +118,7 @@ function kaleidico_affordability_calculator_shortcode($atts)
 
             <div class="input-group">
                 <div class="input-container">
-                    <label for="property_insurance">Property TInsurance</label>
+                    <label for="property_insurance">Property Insurance</label>
                     <input type="text" class="input-percentage" name="property_insurance" value="<?php echo esc_attr($attributes['property_insurance']); ?>" />
                     <span class="percentage-sign">%</span>
                 </div>
@@ -143,9 +143,9 @@ function kaleidico_affordability_calculator_shortcode($atts)
                 </div>
                 <div class="rc">
                     <div id="totalMonthlyPayment" class="monthly-payment"></div>
-                    <div id="affordabilityStatus" class="affordability-status"></div>
                 </div>
             </div>
+            <div id="affordabilityStatus" class="affordability-status"></div>
             <div class="show-hide-calculator-results-advanced">
                 <span class="show-advanced-text">Show Advanced <i class="fa fa-chevron-down"></i></span>
                 <span class="hide-advanced-text">Hide Advanced <i class="fa fa-chevron-up"></i></span>
@@ -153,7 +153,7 @@ function kaleidico_affordability_calculator_shortcode($atts)
             <div class="calculator-results-advanced-container">
                 <div class="calculator-results-advanced">
 
-                    <div class="">
+                    <div class="lc">
                         <div class="advanced-row">
                             <div class="advanced-label">
                                 Loan Amount
@@ -178,6 +178,8 @@ function kaleidico_affordability_calculator_shortcode($atts)
                                 <div id="monthlyMortgagePayment"></div>
                             </div>
                         </div>
+                    </div>
+                    <div class="rc">
                         <div class="advanced-row">
                             <div class="advanced-label">
                                 Principal & Interest
@@ -202,7 +204,6 @@ function kaleidico_affordability_calculator_shortcode($atts)
                                 <div id="pmi"></div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
