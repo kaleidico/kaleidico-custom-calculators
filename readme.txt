@@ -21,6 +21,9 @@ They are displayed by a shortcode.
 
 
 == Changelog ==
+= 2.3.4 =
+* Fixed an issue with styling the tooltip
+
 = 2.3.3 =
 * Fixed an issue with styling
 
