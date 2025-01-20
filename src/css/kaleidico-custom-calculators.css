@@ -2,8 +2,6 @@
 
 :root {
 	--text-color: #444;
-	--primary-color: #1b75bc;
-	--secondary-color: #024c87;
 	--border-color: #ababab;
 	--input-border-color: #949494;
 	--primary-font: "Poppins", sans-serif;
@@ -19,7 +17,6 @@
 }
 .kaleidico-calculator .calculator-white-section h2 {
 	font-size: 32px;
-	color: var(--primary-color);
 	letter-spacing: 0;
 	font-weight: bold;
 	margin-bottom: 16px;
@@ -67,7 +64,6 @@
 	position: relative;
 }
 .kaleidico-calculator .tooltip-group i {
-	color: var(--primary-color);
 	cursor: pointer;
 }
 .kaleidico-calculator .tooltip {
@@ -75,10 +71,8 @@
 	position: absolute;
 	width: 270px;
 	left: 40px;
-	background-color: var(--secondary-color);
 	padding: 16px;
 	color: white;
-	font-family: var(--primary-font);
 	line-height: normal;
 	font-size: 14px;
 	border-radius: 8px;
@@ -139,7 +133,6 @@
 .kaleidico-calculator input[type="radio"] + .radio-label:before {
 	content: "\f10c";
 	font-family: "FontAwesome", sans-serif;
-	color: var(--primary-color);
 	font-size: 28px;
 	margin-right: 8px;
 }
@@ -174,7 +167,6 @@
 .kaleidico-calculator .hide-advanced-text {
 	font-weight: 600;
 	font-size: 16px;
-	color: var(--primary-color);
 	cursor: pointer;
 }
 .kaleidico-calculator .hide-advanced-text {
@@ -182,7 +174,6 @@
 }
 .kaleidico-calculator .monthly-payment {
 	font-size: 36px;
-	color: var(--secondary-color);
 	font-weight: bold;
 }
 .kaleidico-calculator .calculator-results-advanced {
@@ -230,7 +221,6 @@
 	letter-spacing: 1px;
 	font-weight: bold;
 	text-transform: uppercase;
-	color: var(--primary-color);
 }
 .kaleidico-calculator .advanced-total {
 	font-size: 14px;
@@ -254,7 +244,6 @@
 .kaleidico-calculator-show-disclaimer-text,
 .kaleidico-calculator-hide-disclaimer-text {
 	margin-top: 16px;
-	color: var(--primary-color);
 	padding-left: 48px;
 	font-weight: 600;
 	cursor: pointer;
