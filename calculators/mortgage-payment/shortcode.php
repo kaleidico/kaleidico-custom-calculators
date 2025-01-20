@@ -51,8 +51,8 @@ function mortgage_payment_calculator_shortcode($atts)
                         Down Payment
                     </label>
                     <span class="tooltip-group">
-                        <i class="fa fa-info-circle down-payment-tooltip-click" aria-hidden="true"></i>
-                        <div class="down-payment-tooltip tooltip">
+                        <i class="fa fa-info-circle down-payment-tooltip-click text-primary-color hover:text-secondary-color" aria-hidden="true"></i>
+                        <div class="down-payment-tooltip bg-primary-color tooltip">
                             <?php the_field('mortgage_payment_down_payment_tooltip', 'option'); ?>
                         </div>
                     </span>
@@ -80,8 +80,8 @@ function mortgage_payment_calculator_shortcode($atts)
                 </div>
             </div>
             <div class="show-hide-calculator-results-advanced">
-                <span class="show-advanced-text">Show Advanced <i class="fa fa-chevron-down"></i></span>
-                <span class="hide-advanced-text">Hide Advanced <i class="fa fa-chevron-up"></i></span>
+                <span class="show-advanced-text text-primary-color">Show Advanced <i class="fa fa-chevron-down"></i></span>
+                <span class="hide-advanced-text text-primary-color">Hide Advanced <i class="fa fa-chevron-up"></i></span>
             </div>
             <div class="calculator-results-advanced-container">
                 <div class="calculator-results-advanced">
@@ -196,10 +196,10 @@ function mortgage_payment_calculator_shortcode($atts)
     <?php $disclaimer_text = get_field('mortgage_payment_disclaimer_text', 'option');
     if ($disclaimer_text) { ?>
         <div class="kaleidico-calculator-disclaimer">
-            <div class="kaleidico-calculator-show-disclaimer-text">
+            <div class="kaleidico-calculator-show-disclaimer-text text-primary-color">
                 Show Disclaimer <i class="fa fa-chevron-down"></i>
             </div>
-            <div class="kaleidico-calculator-hide-disclaimer-text">
+            <div class="kaleidico-calculator-hide-disclaimer-text text-primary-color">
                 Hide Disclaimer <i class="fa fa-chevron-up"></i>
             </div>
             <div class="kaleidico-calculator-disclaimer-text">
