@@ -21,6 +21,9 @@ They are displayed by a shortcode.
 
 
 == Changelog ==
+= 2.3.3 =
+* Fixed an issue with styling
+
 = 2.3.2 =
 * Fixed an issue with the disclaimer ACF field name
 
