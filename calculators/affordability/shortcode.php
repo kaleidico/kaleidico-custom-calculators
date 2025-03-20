@@ -215,7 +215,7 @@ function kaleidico_affordability_calculator_shortcode($atts)
             <?php } ?>
         </div>
     </div>
-    <?php $disclaimer_text = get_field('disclaimer_text', 'option');
+    <?php $disclaimer_text = get_field('affordability_calc_disclaimer_text', 'option');
     if ($disclaimer_text) { ?>
         <div class="kaleidico-calculator-disclaimer">
             <div class="kaleidico-calculator-show-disclaimer-text">
