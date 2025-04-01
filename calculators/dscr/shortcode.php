@@ -212,7 +212,7 @@ function kaleidico_dscr_calculator_shortcode($atts)
             </div>
 
             <?php
-            $cta_button = get_field('affordability_calc_cta_button', 'option');
+            $cta_button = get_field('dscr_calc_cta_button', 'option');
             if ($cta_button) { ?>
                 <div class="calculator-cta">
                     <a class="button" href="<?php echo $cta_button['url']; ?>" target="<?php echo $cta_button['target']; ?>">
@@ -223,7 +223,7 @@ function kaleidico_dscr_calculator_shortcode($atts)
         </div>
 
         <?php
-        $disclaimer_text = get_field('affordability_calc_disclaimer_text', 'option');
+        $disclaimer_text = get_field('dscr_calc_disclaimer_text', 'option');
         if ($disclaimer_text) { ?>
             <div class="kaleidico-calculator-disclaimer">
                 <div class="kaleidico-calculator-show-disclaimer-text">
