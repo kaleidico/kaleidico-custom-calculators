@@ -135,93 +135,95 @@ function kaleidico_dscr_calculator_shortcode($atts)
                     </div>
                 </div>
                 <div class="rc">
-                    <div class="advanced-summary">
-                        <div class="summary-item">
-                            <span class="summary-label">Cash Flow (Annual)</span>
-                            <div class="summary-value" id="annualCashFlow"></div>
+                    <div class="stick-it">
+                        <div class="advanced-summary">
+                            <div class="summary-item">
+                                <span class="summary-label">Cash Flow (Annual)</span>
+                                <div class="summary-value" id="annualCashFlow"></div>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Cap Rate</span>
+                                <div class="summary-value" id="capRate"></div>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Cash on Cash Return</span>
+                                <div class="summary-value" id="cashOnCash"></div>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">DSCR Rate</span>
+                                <div class="summary-value" id="dscrRate"></div>
+                            </div>
                         </div>
-                        <div class="summary-item">
-                            <span class="summary-label">Cap Rate</span>
-                            <div class="summary-value" id="capRate"></div>
-                        </div>
-                        <div class="summary-item">
-                            <span class="summary-label">Cash on Cash Return</span>
-                            <div class="summary-value" id="cashOnCash"></div>
-                        </div>
-                        <div class="summary-item">
-                            <span class="summary-label">DSCR Rate</span>
-                            <div class="summary-value" id="dscrRate"></div>
-                        </div>
-                    </div>
 
-                    <!-- Detailed Metrics (Two Columns) -->
-                    <div class="advanced-details">
-                        <div class="lc">
-                            <div class="advanced-row">
-                                <div class="advanced-label">Loan Amount</div>
-                                <div class="advanced-total" id="loanAmount"></div>
+                        <!-- Detailed Metrics (Two Columns) -->
+                        <div class="advanced-details">
+                            <div class="lc">
+                                <div class="advanced-row">
+                                    <div class="advanced-label">Loan Amount</div>
+                                    <div class="advanced-total" id="loanAmount"></div>
+                                </div>
+                                <div class="advanced-row">
+                                    <div class="advanced-label">Down Payment</div>
+                                    <div class="advanced-total" id="downPayment"></div>
+                                </div>
+                                <div class="advanced-row">
+                                    <div class="advanced-label">Mortgage Payment</div>
+                                    <div class="advanced-total" id="monthlyMortgagePayment"></div>
+                                </div>
+                                <div class="advanced-row">
+                                    <div class="advanced-label">Total Monthly Debt Service</div>
+                                    <div class="advanced-total" id="monthlyDebtService"></div>
+                                </div>
+                                <div class="advanced-row">
+                                    <div class="advanced-label">Origination Fee Amount</div>
+                                    <div class="advanced-total" id="origFeeAmount"></div>
+                                </div>
                             </div>
-                            <div class="advanced-row">
-                                <div class="advanced-label">Down Payment</div>
-                                <div class="advanced-total" id="downPayment"></div>
-                            </div>
-                            <div class="advanced-row">
-                                <div class="advanced-label">Mortgage Payment</div>
-                                <div class="advanced-total" id="monthlyMortgagePayment"></div>
-                            </div>
-                            <div class="advanced-row">
-                                <div class="advanced-label">Total Monthly Debt Service</div>
-                                <div class="advanced-total" id="monthlyDebtService"></div>
-                            </div>
-                            <div class="advanced-row">
-                                <div class="advanced-label">Origination Fee Amount</div>
-                                <div class="advanced-total" id="origFeeAmount"></div>
+                            <div class="rc">
+                                <div class="advanced-row">
+                                    <div class="advanced-label">Total Closing Costs</div>
+                                    <div class="advanced-total" id="totalClosingCosts"></div>
+                                </div>
+                                <div class="advanced-row">
+                                    <div class="advanced-label">Cash Needed to Close</div>
+                                    <div class="advanced-total" id="cashNeededToClose"></div>
+                                </div>
+                                <div class="advanced-row">
+                                    <div class="advanced-label">Price per Unit</div>
+                                    <div class="advanced-total" id="pricePerUnit"></div>
+                                </div>
+                                <div class="advanced-row">
+                                    <div class="advanced-label">Gross Rental Income</div>
+                                    <div class="advanced-total" id="grossAnnualRent"></div>
+                                </div>
+                                <div class="advanced-row">
+                                    <div class="advanced-label">Effective Rental Income</div>
+                                    <div class="advanced-total" id="effectiveAnnualRent"></div>
+                                </div>
+                                <div class="advanced-row">
+                                    <div class="advanced-label">Operating Expenses</div>
+                                    <div class="advanced-total" id="operatingExpenses"></div>
+                                </div>
+                                <div class="advanced-row no-bottom-border">
+                                    <div class="advanced-label">Net Operating Income</div>
+                                    <div class="advanced-total" id="NOI"></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="rc">
-                            <div class="advanced-row">
-                                <div class="advanced-label">Total Closing Costs</div>
-                                <div class="advanced-total" id="totalClosingCosts"></div>
-                            </div>
-                            <div class="advanced-row">
-                                <div class="advanced-label">Cash Needed to Close</div>
-                                <div class="advanced-total" id="cashNeededToClose"></div>
-                            </div>
-                            <div class="advanced-row">
-                                <div class="advanced-label">Price per Unit</div>
-                                <div class="advanced-total" id="pricePerUnit"></div>
-                            </div>
-                            <div class="advanced-row">
-                                <div class="advanced-label">Gross Rental Income</div>
-                                <div class="advanced-total" id="grossAnnualRent"></div>
-                            </div>
-                            <div class="advanced-row">
-                                <div class="advanced-label">Effective Rental Income</div>
-                                <div class="advanced-total" id="effectiveAnnualRent"></div>
-                            </div>
-                            <div class="advanced-row">
-                                <div class="advanced-label">Operating Expenses</div>
-                                <div class="advanced-total" id="operatingExpenses"></div>
-                            </div>
-                            <div class="advanced-row no-bottom-border">
-                                <div class="advanced-label">Net Operating Income</div>
-                                <div class="advanced-total" id="NOI"></div>
-                            </div>
+                        <div class="calculator-cta-section">
+                            <?php
+                            $cta_button = get_field('dscr_calc_cta_button', 'option');
+                            if ($cta_button) { ?>
+                                <div class="calculator-cta">
+                                    <a class="button" href="<?php echo $cta_button['url']; ?>" target="<?php echo $cta_button['target']; ?>">
+                                        <?php echo $cta_button['title']; ?>
+                                    </a>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="calculator-cta-section">
-            <?php
-            $cta_button = get_field('dscr_calc_cta_button', 'option');
-            if ($cta_button) { ?>
-                <div class="calculator-cta">
-                    <a class="button" href="<?php echo $cta_button['url']; ?>" target="<?php echo $cta_button['target']; ?>">
-                        <?php echo $cta_button['title']; ?>
-                    </a>
-                </div>
-            <?php } ?>
         </div>
     </div>
 

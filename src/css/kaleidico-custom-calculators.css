@@ -374,3 +374,24 @@
 .dscr-calculator .calculator-cta-section {
 	padding: 0 1.5rem 1.5rem;
 }
+.dscr-calculator .stick-it {
+	position: sticky;
+	top: 20px;
+	padding-bottom: 16px;
+}
+
+.tooltip {
+	background-color: #808080; /* Grey background */
+	color: #fff; /* White text for contrast */
+	padding: 8px 12px;
+	border-radius: 4px;
+	font-size: 14px;
+	position: absolute;
+	z-index: 100;
+	display: none; /* Hidden by default, toggled via JS */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip.clicked {
+	display: block;
+}

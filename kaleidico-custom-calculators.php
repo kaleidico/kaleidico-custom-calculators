@@ -2,7 +2,7 @@
 /*
 Plugin Name: Kaleidico Custom Calculators
 Description: This is a plugin containing mortgage calculators for Kaleidico
-Version: 2.4.3
+Version: 2.4.5
 Author: Angelo Marasa
 Author URI: https://github.com/angelo-marasa
 */
@@ -12,6 +12,7 @@ require 'calculators/fha/shortcode.php';
 require 'calculators/mortgage-payment/shortcode.php';
 require 'calculators/affordability/shortcode.php';
 require 'calculators/dscr/shortcode.php';
+require 'calculators/heloc/shortcode.php';
 
 // Updater
 require 'puc/plugin-update-checker.php';
@@ -56,8 +57,22 @@ function kaleidico_custom_calculators_enqueue_scripts()
         wp_enqueue_script('kaleidico-custom-calculators-affordability-script', plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-affordability.js', array('jquery'), '', true);
     }
 
+
+    if (has_shortcode($post->post_content, 'heloc_calculator')) {
+        wp_enqueue_script('kaleidico-custom-calculators-heloc-script', plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-heloc.js', array('jquery'), '', true);
+
+        // Enqueue Chart.js from CDN
+        wp_enqueue_script(
+            'chart-js',
+            'https://cdn.jsdelivr.net/npm/chart.js',
+            array(),
+            null,
+            true
+        );
+    }
+
     // Enqueue UI scripts which might be needed across all calculator pages
-    if (has_shortcode($post->post_content, 'fha_calculator') || has_shortcode($post->post_content, 'dscr-calculator') || has_shortcode($post->post_content, 'mortgage-payment-calculator') || has_shortcode($post->post_content, 'affordability_calculator')) {
+    if (has_shortcode($post->post_content, 'fha_calculator') || has_shortcode($post->post_content, 'heloc_calculator') || has_shortcode($post->post_content, 'dscr-calculator') || has_shortcode($post->post_content, 'mortgage-payment-calculator') || has_shortcode($post->post_content, 'affordability_calculator')) {
         wp_enqueue_script('kaleidico-custom-calculators-ui-script', plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-ui.js', array('jquery'), '', true);
     }
 }
