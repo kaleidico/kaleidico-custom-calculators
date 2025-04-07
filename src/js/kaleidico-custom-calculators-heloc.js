@@ -210,7 +210,9 @@ function renderHELOCStackedBarChart(yearlyData) {
 	const labels = yearlyData.map((row) => `Year ${row.year}`);
 	const interestDataset = yearlyData.map((row) => row.interestPaid);
 	const principalDataset = yearlyData.map((row) => row.principalPaid);
-	const balanceDataset = yearlyData.map((row) => row.endingBalance);
+	const balanceDataset = yearlyData.map(
+		(row) => -Math.abs(row.endingBalance)
+	);
 
 	if (helocChartInstance) {
 		helocChartInstance.destroy();
