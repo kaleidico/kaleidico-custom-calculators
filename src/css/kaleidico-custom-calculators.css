@@ -265,82 +265,23 @@
 	width: 100%;
 	max-width: 100%;
 }
-.kaleidico-calculator .lc,
-.kaleidico-calculator .rc {
-	width: 50%;
-}
 
-@media (max-width: 870px) {
-	.kaleidico-calculator
-		.calculator-results-advanced
-		.advanced-row.underlined-advanced-row {
-		border-bottom: 1px solid var(--border-color);
-		padding-bottom: 16px;
-		margin-bottom: 8px;
-	}
-	.kaleidico-calculator .calculator-results-simple,
-	.kaleidico-calculator .calculator-results-advanced {
-		display: block;
-	}
-	.kaleidico-calculator .lc,
-	.kaleidico-calculator .rc {
-		width: 100%;
-	}
-	.kaleidico-calculator .calculator-results-advanced .lc {
-		padding-bottom: 24px;
-		border-bottom: 1px solid var(--border-color);
-		margin-bottom: 16px;
-	}
-}
-@media (max-width: 639px) {
-	.kaleidico-calculator .radio-group {
-		display: block;
-	}
-	.kaleidico-calculator input[type="radio"] + label {
-		margin-bottom: 16px;
-	}
-	.kaleidico-calculator .calculator-white-section,
-	.kaleidico-calculator .calculator-grey-section {
-		padding: 24px 16px;
-	}
-	.kaleidico-calculator .show-hide-calculator-results-advanced {
-		margin-top: 0px;
-	}
-	.kaleidico-calculator-disclaimer-text,
-	.kaleidico-calculator-show-disclaimer-text,
-	.kaleidico-calculator-hide-disclaimer-text {
-		padding-left: 0;
-		padding-right: 0;
-	}
-	.calculator-results-simple {
-		display: block !important;
-		margin-bottom: 16px;
-	}
-	.down-payment-tooltip-click {
-		bottom: -2px;
-	}
-	.kaleidico-calculator .tooltip {
-		width: 250px !important;
-		font-size: 13px !important;
-	}
-	.kaleidico-calculator .tooltip::before {
-		top: 49%;
-	}
-}
-
+/* ------------------------------- */
 /* Heloc Calculator Specific Styles */
+/* ------------------------------- */
 
-/* New flex container for columns */
+/* Updated flex container for columns */
 .heloc-calculator-container {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px; /* Optional: adjust gap between columns */
+	gap: 20px; /* Adjust gap between columns if needed */
 }
 
-/* Set the left and right columns to 50% width on larger screens */
+/* Adjusted column widths to account for gap; use box-sizing for padding */
 .heloc-calculator-lc,
 .heloc-calculator-rc {
-	width: 50%;
+	width: calc(50% - 10px);
+	box-sizing: border-box;
 }
 
 /* On smaller screens, have the columns stack */
