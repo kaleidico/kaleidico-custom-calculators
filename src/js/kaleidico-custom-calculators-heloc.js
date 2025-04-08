@@ -248,7 +248,7 @@ function renderHELOCStackedBarChart(yearlyData) {
 			plugins: {
 				title: {
 					display: true,
-					text: "HELOC Calculator - Stacked Bar Chart",
+					text: "",
 				},
 			},
 			scales: {
