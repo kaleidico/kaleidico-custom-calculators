@@ -142,7 +142,6 @@ function kaleidico_heloc_calculator_shortcode($atts)
                     </div>
                 </div>
 
-                <hr>
                 <!-- Tabs for Chart, Table, and Amortization -->
                 <div class="heloc-tabs">
                     <ul class="heloc-tab-toggles">
