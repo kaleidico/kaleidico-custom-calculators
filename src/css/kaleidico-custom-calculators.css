@@ -387,7 +387,7 @@
 }
 
 .tooltip {
-	background-color: var(--primary-color); /* Grey background */
+	background-color: #444; /* Grey background */
 	color: #fff; /* White text for contrast */
 	padding: 8px 12px;
 	border-radius: 4px;
@@ -396,7 +396,6 @@
 	z-index: 100;
 	display: none; /* Hidden by default, toggled via JS */
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-	bottom: -1px;
 }
 
 .tooltip.clicked {
@@ -492,6 +491,10 @@ table.heloc-amort-table tr:nth-of-type(even) {
 	max-height: 200px;
 	height: 200px;
 }
+.heloc-calculator-cta {
+	max-width: 400px;
+	margin: auto;
+}
 @media (max-width: 639px) {
 	.loc-item {
 		text-align: center;
@@ -502,4 +505,17 @@ table.heloc-amort-table tr:nth-of-type(even) {
 	table.heloc-amort-table thead {
 		font-size: 11px;
 	}
+}
+@media (min-width: 1199px) {
+	.heloc-calculator-lc {
+		width: 100%;
+		max-width: 320px;
+	}
+}
+.heloc-disclaimer .kaleidico-calculator-show-disclaimer-text,
+.heloc-disclaimer .kaleidico-calculator-hide-disclaimer-text {
+	margin-left: 0;
+	padding-left: 0;
+	width: 100%;
+	text-align: center;
 }

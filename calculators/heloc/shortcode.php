@@ -198,7 +198,7 @@ function kaleidico_heloc_calculator_shortcode($atts)
                 </div>
 
                 <?php if ($cta_button) : ?>
-                    <div class="calculator-cta">
+                    <div class="calculator-cta heloc-calculator-cta">
                         <a class="button" href="<?php echo esc_url($cta_button['url']); ?>" target="<?php echo esc_attr($cta_button['target']); ?>">
                             <?php echo esc_html($cta_button['title']); ?>
                         </a>
@@ -208,7 +208,7 @@ function kaleidico_heloc_calculator_shortcode($atts)
         </div>
     </div>
     <?php if ($disclaimer_text) : ?>
-        <div class="kaleidico-calculator-disclaimer">
+        <div class="kaleidico-calculator-disclaimer heloc-disclaimer">
             <div class="kaleidico-calculator-show-disclaimer-text">
                 Show Disclaimer <i class="fa fa-chevron-down"></i>
             </div>
