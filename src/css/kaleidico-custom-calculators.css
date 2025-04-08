@@ -361,20 +361,11 @@
 		margin-left: -200px;
 		margin-right: -200px;
 	}
-	.heloc-calculator {
-		margin-left: -250px;
-		margin-right: -250px;
-	}
 	.dscr-calculator .advanced-summary {
 		justify-content: space-between;
 	}
 	.dscr-calculator .summary-item {
 		width: 48%;
-	}
-	.dscr-calculator .advanced-details,
-	.heloc-calculator-container {
-		display: flex;
-		column-gap: 1rem;
 	}
 }
 .dscr-calculator .calculator-cta-section {
@@ -403,6 +394,7 @@
 }
 .heloc-calculator-lc {
 	padding: 30px;
+	padding-bottom: 0;
 }
 .heloc-calculator-sticky {
 	position: sticky;
@@ -504,12 +496,6 @@ table.heloc-amort-table tr:nth-of-type(even) {
 	table.heloc-yearly-table thead,
 	table.heloc-amort-table thead {
 		font-size: 11px;
-	}
-}
-@media (min-width: 1199px) {
-	.heloc-calculator-lc {
-		width: 100%;
-		max-width: 320px;
 	}
 }
 .heloc-disclaimer .kaleidico-calculator-show-disclaimer-text,
