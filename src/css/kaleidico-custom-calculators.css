@@ -8,9 +8,9 @@
 	--primary-color: rgb(77, 171, 247);
 }
 .kaleidico-calculator {
-	border: 1px solid var(--border-color);
+	/* border: 1px solid var(--border-color);
 	border-radius: 4px;
-	color: var(--text-color);
+	color: var(--text-color); */
 }
 .kaleidico-calculator .calculator-white-section {
 	background: white;
@@ -278,9 +278,13 @@
 }
 
 /* Adjusted column widths to account for gap; use box-sizing for padding */
-.heloc-calculator-lc,
+.heloc-calculator-lc {
+	width: calc(30% - 20px);
+	box-sizing: border-box;
+}
+
 .heloc-calculator-rc {
-	width: calc(50% - 10px);
+	width: calc(70% - 20px);
 	box-sizing: border-box;
 }
 
