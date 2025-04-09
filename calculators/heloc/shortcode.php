@@ -25,6 +25,16 @@ function kaleidico_heloc_calculator_shortcode($atts)
 
     ob_start();
 ?>
+    <style>
+        .container[max-width~="1199px"] {
+            flex-direction: column;
+        }
+
+        .container[max-width~="1199px"] .heloc-calculator-lc,
+        .container[max-width~="1199px"] .heloc-calculator-rc {
+            width: 100%;
+        }
+    </style>
     <div class="kaleidico-calculator heloc-calculator">
         <div class="heloc-calculator-container">
 
@@ -224,6 +234,7 @@ function kaleidico_heloc_calculator_shortcode($atts)
                 <?php echo $disclaimer_text; ?>
             </div>
         </div>
+
     <?php endif; ?>
 <?php
     return ob_get_clean();

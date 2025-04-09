@@ -2,7 +2,7 @@
 /*
 Plugin Name: Kaleidico Custom Calculators
 Description: This is a plugin containing mortgage calculators for Kaleidico.
-Version: 2.5.7
+Version: 2.6.0
 Author: Angelo Marasa
 Author URI: https://github.com/angelo-marasa
 */
@@ -47,15 +47,21 @@ defined('ABSPATH') || exit;
  */
 function kaleidico_custom_calculators_is_license_valid()
 {
+    // Temporarily disable transient caching for debugging:
     $cached = get_transient('kaleidico_custom_calculators_license_valid');
     if ($cached !== false) {
         return $cached;
     }
+
     $license_key = get_option('kaleidico_custom_calculators_license_key', '');
+    // error_log('$license_key: ' . $license_key);
+
     if (empty($license_key)) {
+        // error_log('License key is empty, setting transient.');
         set_transient('kaleidico_custom_calculators_license_valid', false, HOUR_IN_SECONDS);
         return false;
     }
+
     $response = wp_remote_post('http://206.189.194.86/api/license/verify', [
         'timeout' => 15,
         'body'    => [
@@ -64,16 +70,25 @@ function kaleidico_custom_calculators_is_license_valid()
             'domain'      => home_url(),
         ],
     ]);
+
+    // error_log('Kaleidico License Verify Response: ' . print_r($response, true));
+
     if (is_wp_error($response) || wp_remote_retrieve_response_code($response) !== 200) {
         set_transient('kaleidico_custom_calculators_license_valid', false, HOUR_IN_SECONDS);
         return false;
     }
     $license_data = json_decode(wp_remote_retrieve_body($response), true);
-    // Accept "true" (string or boolean) using filter_var.
-    $valid = (!empty($license_data) && filter_var($license_data['valid'], FILTER_VALIDATE_BOOLEAN));
+
+    $valid = (!empty($license_data)
+        && isset($license_data['license_info']['status'])
+        && strtolower($license_data['license_info']['status']) === 'active');
+
     set_transient('kaleidico_custom_calculators_license_valid', $valid, HOUR_IN_SECONDS);
     return $valid;
 }
+
+
+
 
 /**
  * Display an admin notice if the plugin does not have a valid license.
@@ -256,6 +271,8 @@ function kaleidico_custom_calculators_enqueue_scripts()
         if (has_shortcode($post->post_content, 'heloc_calculator')) {
             wp_enqueue_script('kaleidico-custom-calculators-heloc-script', plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-heloc.js', array('jquery'), '', true);
             wp_enqueue_script('chart-js', 'https://cdn.jsdelivr.net/npm/chart.js', array(), null, true);
+            wp_enqueue_script('kaleidico-custom-calculators-heloc-resizer', plugin_dir_url(__FILE__) . 'src/js/heloc-resizer.js', array('jquery'), '', true);
+            wp_enqueue_script('kaleidico-custom-calculators-heloc-element-queries', plugin_dir_url(__FILE__) . 'src/js/heloc-element-queries.js', array('jquery'), '', true);
         }
         // Enqueue UI scripts if any calculator shortcode is present.
         if (

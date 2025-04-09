@@ -405,3 +405,6 @@ table.heloc-amort-table tr:nth-of-type(even) {
 	width: 100%;
 	text-align: center;
 }
+.loc-label {
+	height: 60px;
+}
