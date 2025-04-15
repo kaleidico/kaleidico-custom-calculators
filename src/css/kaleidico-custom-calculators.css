@@ -334,7 +334,9 @@
 
 /* Responsive Styles */
 @media (max-width: 870px) {
-	.kaleidico-calculator .calculator-results-advanced .advanced-row.underlined-advanced-row {
+	.kaleidico-calculator
+		.calculator-results-advanced
+		.advanced-row.underlined-advanced-row {
 		border-bottom: 1px solid var(--border-color);
 		padding-bottom: 16px;
 		margin-bottom: 8px;
@@ -396,6 +398,10 @@
 	column-gap: 1rem;
 	margin-bottom: 32px;
 	flex-wrap: wrap;
+}
+
+.heloc-calculator-lc {
+	padding: 30px;
 }
 
 .dscr-calculator .summary-item {
