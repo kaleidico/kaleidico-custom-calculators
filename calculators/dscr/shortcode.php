@@ -23,8 +23,6 @@ function kaleidico_dscr_calculator_shortcode($atts)
 ?>
     <div class="kaleidico-calculator dscr-calculator">
         <div class="calculator-white-section">
-            <h2 class="calculator-title">DSCR Advanced Calculator</h2>
-
             <div class="dscr-calculator-grid">
                 <div class="lc">
                     <div class="input-group">

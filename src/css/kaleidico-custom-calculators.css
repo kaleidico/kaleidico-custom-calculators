@@ -1,5 +1,9 @@
 /* Kaleidico Custom Calculators Stylesheet */
 
+/* 
+  Combined :root variables.
+  The second file adds --primary-color so that is retained.
+*/
 :root {
 	--text-color: #444;
 	--border-color: #ababab;
@@ -7,31 +11,39 @@
 	--primary-font: "Poppins", sans-serif;
 	--primary-color: rgb(77, 171, 247);
 }
+
+/* General Calculator Styles */
 .kaleidico-calculator {
-	/* border: 1px solid var(--border-color);
+	/* Using the definitions from the first file */
+	border: 1px solid var(--border-color);
 	border-radius: 4px;
-	color: var(--text-color); */
+	color: var(--text-color);
 }
+
 .kaleidico-calculator .calculator-white-section {
 	background: white;
 	padding: 32px 48px 20px 48px;
 }
+
 .kaleidico-calculator .calculator-white-section h2 {
 	font-size: 32px;
 	letter-spacing: 0;
 	font-weight: bold;
 	margin-bottom: 16px;
 }
+
 .kaleidico-calculator .input-group {
 	margin-bottom: 38px;
 	position: relative;
 }
+
 .kaleidico-calculator .input-group label {
 	display: flex;
 	font-size: 16px;
 	font-weight: 600;
 	margin-bottom: 8px;
 }
+
 .kaleidico-calculator .input-group input,
 .kaleidico-calculator .input-group select {
 	border: 1px solid var(--input-border-color);
@@ -40,6 +52,7 @@
 	border-radius: 8px;
 	font-size: 18px;
 }
+
 .kaleidico-calculator .input-group select {
 	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>');
 	-webkit-appearance: none;
@@ -48,10 +61,12 @@
 	background-repeat: no-repeat;
 	background-position: 95% center;
 }
+
 .kaleidico-calculator .input-group .input-percentage,
 .kaleidico-calculator .input-group .input-years {
 	padding-left: 17px;
 }
+
 .kaleidico-calculator .input-group .input-container .dollar-sign {
 	position: absolute;
 	left: 16px;
@@ -59,6 +74,7 @@
 	color: #757575;
 	top: 53%;
 }
+
 .kaleidico-calculator .input-group .input-container .percentage-sign {
 	position: absolute;
 	right: 16px;
@@ -66,16 +82,20 @@
 	color: #757575;
 	top: 53%;
 }
+
 .kaleidico-calculator .tooltip-label-icon-container {
 	display: flex;
 	column-gap: 6px;
 }
+
 .kaleidico-calculator .tooltip-group {
 	position: relative;
 }
+
 .kaleidico-calculator .tooltip-group i {
 	cursor: pointer;
 }
+
 .kaleidico-calculator .tooltip {
 	visibility: hidden;
 	position: absolute;
@@ -92,10 +112,13 @@
 	transition: all 300ms ease-in-out;
 	z-index: 99999;
 }
+
 .kaleidico-calculator .tooltip.clicked {
 	visibility: visible;
 	opacity: 1;
 }
+
+/* Tooltip arrow */
 .tooltip:before {
 	display: block;
 	height: 28px;
@@ -110,22 +133,28 @@
 	border-radius: 0 0 0 0.5em;
 	content: "";
 }
+
 .down-payment-tooltip-click {
 	position: relative;
 	bottom: 2px;
 }
+
 .kaleidico-calculator label {
 	font-weight: 600;
 }
+
+/* Radio Button Group */
 .kaleidico-calculator .radio-group {
 	display: flex;
 	column-gap: 16px;
 	margin-bottom: 32px;
 	margin-top: 8px;
 }
+
 .kaleidico-calculator input[type="radio"] {
 	display: none;
 }
+
 .kaleidico-calculator .radio-label {
 	display: flex;
 	align-items: center;
@@ -137,24 +166,31 @@
 	border-radius: 8px;
 	transition: all 300ms ease;
 }
+
 .kaleidico-calculator .radio-label:hover {
 	background: #f5f5f5;
 }
+
 .kaleidico-calculator input[type="radio"] + .radio-label:before {
 	content: "\f10c";
 	font-family: "FontAwesome", sans-serif;
 	font-size: 28px;
 	margin-right: 8px;
 }
+
 .kaleidico-calculator input[type="radio"]:checked + .radio-label:before {
 	content: "\f192";
 	font-family: "FontAwesome", sans-serif;
 }
+
+/* Grey Section */
 .kaleidico-calculator .calculator-grey-section {
 	background-color: #f5f5f5;
 	padding: 32px 48px 20px 48px;
 	border-top: 1px solid var(--border-color);
 }
+
+/* Headings and Status */
 .kaleidico-calculator h3 {
 	font-size: 20px;
 	color: var(--text-color);
@@ -162,47 +198,58 @@
 	line-height: 22px;
 	position: relative;
 }
+
 .kaleidico-calculator .affordability-status {
 	font-weight: 500;
 	color: var(--text-color);
 	margin-bottom: 32px;
 	font-size: 15px;
 }
+
+/* Results Display */
 .kaleidico-calculator .calculator-results-simple {
 	display: flex;
 	align-items: center;
 	column-gap: 32px;
 }
+
 .kaleidico-calculator .show-advanced-text,
 .kaleidico-calculator .hide-advanced-text {
 	font-weight: 600;
 	font-size: 16px;
 	cursor: pointer;
 }
+
 .kaleidico-calculator .hide-advanced-text {
 	display: none;
 }
+
 .kaleidico-calculator .monthly-payment {
 	font-size: 36px;
 	font-weight: bold;
 }
+
 .kaleidico-calculator .calculator-results-advanced {
 	display: flex;
 	margin-top: 35px;
 	column-gap: 34px;
 }
+
 .kaleidico-calculator .calculator-results-advanced-container {
 	display: none;
 }
+
 .kaleidico-calculator .calculator-results-advanced .input-group:last-child {
 	margin-bottom: 0;
 }
+
 .kaleidico-calculator .calculator-results-advanced .vertical-divider {
 	height: 100%;
 	border: 0;
 	width: 1px;
 	background: var(--border-color);
 }
+
 .kaleidico-calculator .calculator-results-advanced .advanced-row {
 	display: flex;
 	justify-content: space-between;
@@ -212,45 +259,56 @@
 	padding-bottom: 16px;
 	align-items: center;
 }
+
 .kaleidico-calculator .calculator-results-advanced .advanced-row:last-child {
 	padding-bottom: 0;
 	margin-bottom: 0;
 	border-bottom: 0;
 }
+
 .kaleidico-calculator .calculator-results-advanced .advanced-label {
 	max-width: 200px;
 	font-size: 14px;
 	line-height: 16px;
 	font-weight: 600;
 }
+
 .kaleidico-calculator .calculator-results-advanced .input-group {
 	margin-bottom: 16px;
 }
+
 .kaleidico-calculator .advanced-eyebrow-label {
 	font-size: 12px;
 	letter-spacing: 1px;
 	font-weight: bold;
 	text-transform: uppercase;
 }
+
 .kaleidico-calculator .advanced-total {
 	font-size: 14px;
 	color: var(--text-color);
 }
+
+/* Disclaimer and Toggle Text */
 .kaleidico-calculator-disclaimer-text {
 	padding: 16px 48px 16px 48px;
 	display: none;
 }
+
 .kaleidico-calculator-disclaimer-text p {
 	font-size: 14px;
 	line-height: normal;
 }
+
 .kaleidico-calculator .button {
 	border-radius: 8px;
 	margin-top: 24px;
 }
+
 .kaleidico-calculator .show-hide-calculator-results-advanced {
 	margin-top: -16px;
 }
+
 .kaleidico-calculator-show-disclaimer-text,
 .kaleidico-calculator-hide-disclaimer-text {
 	margin-top: 16px;
@@ -258,12 +316,142 @@
 	font-weight: 600;
 	cursor: pointer;
 }
+
 .kaleidico-calculator-hide-disclaimer-text {
 	display: none;
 }
+
+/* Layout for Advanced Rows */
 .kaleidico-calculator .advanced-rows {
 	width: 100%;
 	max-width: 100%;
+}
+
+.kaleidico-calculator .lc,
+.kaleidico-calculator .rc {
+	width: 50%;
+}
+
+/* Responsive Styles */
+@media (max-width: 870px) {
+	.kaleidico-calculator
+		.calculator-results-advanced
+		.advanced-row.underlined-advanced-row {
+		border-bottom: 1px solid var(--border-color);
+		padding-bottom: 16px;
+		margin-bottom: 8px;
+	}
+	.kaleidico-calculator .calculator-results-simple,
+	.kaleidico-calculator .calculator-results-advanced {
+		display: block;
+	}
+	.kaleidico-calculator .lc,
+	.kaleidico-calculator .rc {
+		width: 100%;
+	}
+	.kaleidico-calculator .calculator-results-advanced .lc {
+		padding-bottom: 24px;
+		border-bottom: 1px solid var(--border-color);
+		margin-bottom: 16px;
+	}
+}
+
+@media (max-width: 639px) {
+	.kaleidico-calculator .radio-group {
+		display: block;
+	}
+	.kaleidico-calculator input[type="radio"] + label {
+		margin-bottom: 16px;
+	}
+	.kaleidico-calculator .calculator-white-section,
+	.kaleidico-calculator .calculator-grey-section {
+		padding: 24px 16px;
+	}
+	.kaleidico-calculator .show-hide-calculator-results-advanced {
+		margin-top: 0;
+	}
+	.kaleidico-calculator-disclaimer-text,
+	.kaleidico-calculator-show-disclaimer-text,
+	.kaleidico-calculator-hide-disclaimer-text {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.calculator-results-simple {
+		display: block !important;
+		margin-bottom: 16px;
+	}
+	.down-payment-tooltip-click {
+		bottom: -2px;
+	}
+	.kaleidico-calculator .tooltip {
+		width: 250px !important;
+		font-size: 13px !important;
+	}
+	.kaleidico-calculator .tooltip::before {
+		top: 49%;
+	}
+}
+
+/* DSCR Calculator Styles */
+.dscr-calculator .advanced-summary {
+	display: flex;
+	column-gap: 1rem;
+	margin-bottom: 32px;
+	flex-wrap: wrap;
+}
+
+.heloc-calculator-lc {
+	padding: 30px;
+}
+
+.dscr-calculator .summary-item {
+	border: 1px solid #949494;
+	text-align: center;
+	padding: 1rem;
+	width: 100%;
+	border-radius: 1rem;
+	margin-bottom: 1rem;
+	background: #f5f5f5;
+}
+
+.dscr-calculator .summary-label {
+	font-weight: bold;
+}
+
+.dscr-calculator .advanced-row {
+	margin-bottom: 1rem;
+}
+
+.dscr-calculator .advanced-label {
+	font-weight: bold;
+}
+
+@media (min-width: 871px) {
+	.dscr-calculator-grid {
+		column-gap: 2rem;
+		display: flex;
+	}
+}
+
+@media (min-width: 1199px) {
+	.dscr-calculator {
+		margin-left: -200px;
+		margin-right: -200px;
+	}
+	.dscr-calculator .advanced-summary {
+		justify-content: space-between;
+	}
+	.dscr-calculator .summary-item {
+		width: 48%;
+	}
+	.dscr-calculator .advanced-details {
+		display: flex;
+		column-gap: 2rem;
+	}
+}
+
+.dscr-calculator .calculator-cta-section {
+	padding: 0 1.5rem 1.5rem;
 }
 
 /* ------------------------------- */
@@ -301,14 +489,17 @@
 	top: 20px;
 	padding-bottom: 15px;
 }
+
 .heloc-calculator-rc {
 	flex-grow: 1;
 	padding: 30px;
 }
+
 h3.loc-title {
 	text-align: center;
 	margin-bottom: 24px;
 }
+
 @media (min-width: 640px) {
 	.loc-summary {
 		display: grid;
@@ -317,20 +508,25 @@ h3.loc-title {
 		text-align: center;
 	}
 }
+
 #helocChart {
 	width: 100% !important;
 	height: auto !important;
 }
+
 .loc-label {
 	margin-bottom: 8px;
 }
+
 .loc-value {
 	font-weight: bold;
 	font-size: 24px;
 }
+
 .loc-item {
 	margin-bottom: 24px;
 }
+
 ul.heloc-tab-toggles {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -339,6 +535,7 @@ ul.heloc-tab-toggles {
 	margin-left: 0 !important;
 	padding-left: 0 !important;
 }
+
 ul.heloc-tab-toggles li {
 	display: flex;
 	align-items: center;
@@ -351,15 +548,19 @@ ul.heloc-tab-toggles li {
 	padding-bottom: 10px;
 	cursor: pointer;
 }
+
 ul.heloc-tab-toggles li.active {
 	border-bottom: 2px solid var(--primary-color);
 }
+
 ul.heloc-tab-toggles li:before {
 	display: none;
 }
+
 .heloc-tab-toggles svg {
 	max-width: 24px;
 }
+
 table.heloc-yearly-table,
 table.heloc-amort-table {
 	width: 100%;
@@ -367,6 +568,7 @@ table.heloc-amort-table {
 	overflow-x: scroll;
 	text-align: center;
 }
+
 table.heloc-yearly-table thead,
 table.heloc-amort-table thead {
 	background: var(--primary-color);
@@ -374,30 +576,36 @@ table.heloc-amort-table thead {
 	padding: 10px;
 	font-size: 15px;
 }
+
 table.heloc-yearly-table tr:nth-of-type(even),
 table.heloc-amort-table tr:nth-of-type(even) {
 	background: #efefef;
 }
+
 .scrollable-table {
 	overflow-y: auto;
 	max-height: 200px;
 	height: 200px;
 }
+
 .heloc-calculator-cta {
 	max-width: 400px;
 	margin: auto;
 }
+
 @media (max-width: 639px) {
 	.loc-item {
 		text-align: center;
 	}
 }
+
 @media (max-width: 575px) {
 	table.heloc-yearly-table thead,
 	table.heloc-amort-table thead {
 		font-size: 11px;
 	}
 }
+
 .heloc-disclaimer .kaleidico-calculator-show-disclaimer-text,
 .heloc-disclaimer .kaleidico-calculator-hide-disclaimer-text {
 	margin-left: 0;
@@ -405,6 +613,11 @@ table.heloc-amort-table tr:nth-of-type(even) {
 	width: 100%;
 	text-align: center;
 }
+
 .loc-label {
 	height: 60px;
+}
+
+.tooltip.clicked {
+	background-color: #444;
 }

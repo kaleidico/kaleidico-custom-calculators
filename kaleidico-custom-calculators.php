@@ -2,7 +2,7 @@
 /*
 Plugin Name: Kaleidico Custom Calculators
 Description: This is a plugin containing mortgage calculators for Kaleidico.
-Version: 2.6.0
+Version: 2.6.4
 Author: Angelo Marasa
 Author URI: https://github.com/angelo-marasa
 */
@@ -243,6 +243,7 @@ if (kaleidico_custom_calculators_is_license_valid()) {
     require 'calculators/affordability/shortcode.php';
     require 'calculators/dscr/shortcode.php';
     require 'calculators/heloc/shortcode.php';
+    require 'calculators/fix-and-flip/shortcode.php';
 }
 
 // ------------------------------------------------------------------------------
@@ -253,37 +254,105 @@ function kaleidico_custom_calculators_enqueue_scripts()
 {
     global $post;
 
-    wp_enqueue_style('kaleidico-custom-calculators-style', plugin_dir_url(__FILE__) . 'src/css/kaleidico-custom-calculators.css');
+    /* main stylesheet (unchanged) */
+    wp_enqueue_style(
+        'kaleidico-custom-calculators-style',
+        plugin_dir_url(__FILE__) . 'src/css/kaleidico-custom-calculators.css'
+    );
 
-    if (!empty($post->post_content)) {
-        if (has_shortcode($post->post_content, 'fha_calculator')) {
-            wp_enqueue_script('kaleidico-custom-calculators-fha-script', plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-fha.js', array('jquery'), '', true);
-        }
-        if (has_shortcode($post->post_content, 'mortgage-payment-calculator')) {
-            wp_enqueue_script('kaleidico-custom-calculators-mortgage-payment-script', plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-mortgage-payment.js', array('jquery'), '', true);
-        }
-        if (has_shortcode($post->post_content, 'dscr-calculator')) {
-            wp_enqueue_script('kaleidico-custom-calculators-dscr-script', plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-dscr.js', array('jquery'), '', true);
-        }
-        if (has_shortcode($post->post_content, 'affordability_calculator')) {
-            wp_enqueue_script('kaleidico-custom-calculators-affordability-script', plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-affordability.js', array('jquery'), '', true);
-        }
-        if (has_shortcode($post->post_content, 'heloc_calculator')) {
-            wp_enqueue_script('kaleidico-custom-calculators-heloc-script', plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-heloc.js', array('jquery'), '', true);
-            wp_enqueue_script('chart-js', 'https://cdn.jsdelivr.net/npm/chart.js', array(), null, true);
-            wp_enqueue_script('kaleidico-custom-calculators-heloc-resizer', plugin_dir_url(__FILE__) . 'src/js/heloc-resizer.js', array('jquery'), '', true);
-            wp_enqueue_script('kaleidico-custom-calculators-heloc-element-queries', plugin_dir_url(__FILE__) . 'src/js/heloc-element-queries.js', array('jquery'), '', true);
-        }
-        // Enqueue UI scripts if any calculator shortcode is present.
-        if (
-            has_shortcode($post->post_content, 'fha_calculator') ||
-            has_shortcode($post->post_content, 'heloc_calculator') ||
-            has_shortcode($post->post_content, 'dscr-calculator') ||
-            has_shortcode($post->post_content, 'mortgage-payment-calculator') ||
-            has_shortcode($post->post_content, 'affordability_calculator')
-        ) {
-            wp_enqueue_script('kaleidico-custom-calculators-ui-script', plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-ui.js', array('jquery'), '', true);
-        }
+    if (empty($post->post_content)) {
+        return;
+    }
+
+    /* ========== INDIVIDUAL CALCULATORS ========== */
+    if (has_shortcode($post->post_content, 'fha_calculator')) {
+        wp_enqueue_script(
+            'kaleidico-custom-calculators-fha-script',
+            plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-fha.js',
+            ['jquery'],
+            null,
+            true
+        );
+    }
+
+    if (has_shortcode($post->post_content, 'mortgage-payment-calculator')) {
+        wp_enqueue_script(
+            'kaleidico-custom-calculators-mortgage-payment-script',
+            plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-mortgage-payment.js',
+            ['jquery'],
+            null,
+            true
+        );
+    }
+
+    if (has_shortcode($post->post_content, 'dscr-calculator')) {
+        wp_enqueue_script(
+            'kaleidico-custom-calculators-dscr-script',
+            plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-dscr.js',
+            ['jquery'],
+            null,
+            true
+        );
+    }
+
+    if (has_shortcode($post->post_content, 'affordability_calculator')) {
+        wp_enqueue_script(
+            'kaleidico-custom-calculators-affordability-script',
+            plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-affordability.js',
+            ['jquery'],
+            null,
+            true
+        );
+    }
+
+    if (has_shortcode($post->post_content, 'heloc_calculator')) {
+        wp_enqueue_script(
+            'kaleidico-custom-calculators-heloc-script',
+            plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-heloc.js',
+            ['jquery'],
+            null,
+            true
+        );
+        wp_enqueue_script('chart-js', 'https://cdn.jsdelivr.net/npm/chart.js', [], null, true);
+        wp_enqueue_script(
+            'kaleidico-custom-calculators-heloc-resizer',
+            plugin_dir_url(__FILE__) . 'src/js/heloc-resizer.js',
+            ['jquery'],
+            null,
+            true
+        );
+        wp_enqueue_script(
+            'kaleidico-custom-calculators-heloc-element-queries',
+            plugin_dir_url(__FILE__) . 'src/js/heloc-element-queries.js',
+            ['jquery'],
+            null,
+            true
+        );
+    }
+
+    /* ---------- NEW: Fix‑and‑Flip ---------- */
+    if (has_shortcode($post->post_content, 'fix-and-flip-calculator')) {
+        wp_enqueue_script(
+            'kaleidico-custom-calculators-fix-flip-script',
+            plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-fix-and-flip.js',
+            [] /* remove 'jquery' if using the vanilla file; add it back if the script needs jQuery */,
+            '1.0.4',
+            true
+        );
+    }
+
+    /* ========== SHARED UI SCRIPT ========== */
+    if (preg_match(
+        '/\[(fha_calculator|heloc_calculator|dscr-calculator|mortgage-payment-calculator|affordability_calculator|fix-and-flip-calculator)\b/',
+        $post->post_content
+    )) {
+        wp_enqueue_script(
+            'kaleidico-custom-calculators-ui-script',
+            plugin_dir_url(__FILE__) . 'src/js/kaleidico-custom-calculators-ui.js',
+            ['jquery'],
+            null,
+            true
+        );
     }
 }
 add_action('wp_enqueue_scripts', 'kaleidico_custom_calculators_enqueue_scripts');
