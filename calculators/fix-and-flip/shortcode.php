@@ -80,8 +80,6 @@ function kaleidico_fix_flip_calculator_shortcode($atts)
 	<div class="kaleidico-calculator fix-and-flip-calculator">
 		<!-- ========== WHITE SECTION ========== -->
 		<div class="calculator-white-section">
-			<h2 class="calculator-title">Fix & Flip Calculator</h2>
-
 			<?php
 			kaleidico_ff_currency_input('purchase_price_ff',     'Purchase Price',     $attr['purchase_price_ff'],     'purchase_price_tt',     'purchase-price-tooltip');
 			kaleidico_ff_currency_input('renovation_price_ff',   'Renovation Costs',   $attr['renovation_price_ff'],   'renovation_costs_tt',   'renovation-costs-tooltip');
