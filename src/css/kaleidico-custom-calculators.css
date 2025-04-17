@@ -621,3 +621,50 @@ table.heloc-amort-table tr:nth-of-type(even) {
 .tooltip.clicked {
 	background-color: #444;
 }
+.fix-and-flip-calculator .label-container {
+	display: flex;
+	align-items: top;
+	column-gap: 14px;
+}
+.fix-and-flip-calculator .input-group {
+	margin-bottom: 20px;
+}
+.fix-and-flip-calculator .percentage-sign {
+	transform: translateY(-120%);
+}
+.range-group {
+	margin-bottom: 0 !important;
+}
+.fix-and-flip-calculator-results-row {
+	display: flex;
+	column-gap: 2%;
+}
+.fix-and-flip-calculator-results-lc,
+.fix-and-flip-calculator-results-rc {
+	width: 50%;
+}
+.fix-and-flip-result-box {
+	background: #efefef;
+	margin-bottom: 4%;
+	text-align: center;
+	padding: 15px;
+	border: 2px solid #444;
+	border-radius: 10px;
+}
+.fix-and-flip-result-label {
+	font-weight: 600;
+	font-size: 16px;
+}
+.fix-and-flip-result-total {
+	font-weight: bold;
+	font-size: 20px;
+}
+@media (max-width: 834px) {
+	.fix-and-flip-calculator-results-row {
+		display: block;
+	}
+	.fix-and-flip-calculator-results-lc,
+	.fix-and-flip-calculator-results-rc {
+		width: 100%;
+	}
+}
