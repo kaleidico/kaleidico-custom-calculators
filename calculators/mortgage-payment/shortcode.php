@@ -51,8 +51,8 @@ function mortgage_payment_calculator_shortcode($atts)
                         Down Payment
                     </label>
                     <span class="tooltip-group">
-                        <i class="fa fa-info-circle down-payment-tooltip-click text-primary-color hover:text-secondary-color" aria-hidden="true"></i>
-                        <div class="down-payment-tooltip bg-primary-color tooltip">
+                        <i class="fa fa-info-circle tooltip-icon down-payment-tooltip-click text-primary-color hover:text-secondary-color" aria-hidden="true"></i>
+                        <div class="down-payment bg-primary-color tooltip">
                             <?php the_field('mortgage_payment_down_payment_tooltip', 'option'); ?>
                         </div>
                     </span>

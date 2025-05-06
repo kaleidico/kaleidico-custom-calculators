@@ -47,8 +47,8 @@ function kaleidico_heloc_calculator_shortcode($atts)
                             <label for="heloc_loan_amount">Loan Amount</label>
                             <?php if ($loan_amount_tooltip) : ?>
                                 <span class="tooltip-group">
-                                    <i class="fa fa-info-circle loan-amount-tooltip-click" aria-hidden="true"></i>
-                                    <div class="loan-amount-tooltip tooltip">
+                                    <i class="fa fa-info-circle tooltip-icon loan-amount-tooltip-click" aria-hidden="true"></i>
+                                    <div class="loan-amount tooltip">
                                         <?php echo esc_html($loan_amount_tooltip); ?>
                                     </div>
                                 </span>
@@ -70,8 +70,8 @@ function kaleidico_heloc_calculator_shortcode($atts)
                             <label for="heloc_interest_rate">Interest Rate</label>
                             <?php if ($interest_rate_tooltip) : ?>
                                 <span class="tooltip-group">
-                                    <i class="fa fa-info-circle interest-rate-tooltip-click" aria-hidden="true"></i>
-                                    <div class="interest-rate-tooltip tooltip">
+                                    <i class="fa fa-info-circle tooltip-icon interest-rate-tooltip-click" aria-hidden="true"></i>
+                                    <div class="interest-rate tooltip">
                                         <?php echo esc_html($interest_rate_tooltip); ?>
                                     </div>
                                 </span>
@@ -93,8 +93,8 @@ function kaleidico_heloc_calculator_shortcode($atts)
                             <label for="heloc_interest_only_period">Interest-only Period (years)</label>
                             <?php if ($interest_only_tooltip) : ?>
                                 <span class="tooltip-group">
-                                    <i class="fa fa-info-circle iop-tooltip-click" aria-hidden="true"></i>
-                                    <div class="iop-tooltip tooltip">
+                                    <i class="fa fa-info-circle tooltip-icon iop-tooltip-click" aria-hidden="true"></i>
+                                    <div class="iop tooltip">
                                         <?php echo esc_html($interest_only_tooltip); ?>
                                     </div>
                                 </span>
@@ -114,8 +114,8 @@ function kaleidico_heloc_calculator_shortcode($atts)
                             <label for="heloc_repayment_period">Repayment Period (years)</label>
                             <?php if ($repayment_period_tooltip) : ?>
                                 <span class="tooltip-group">
-                                    <i class="fa fa-info-circle repayment-tooltip-click" aria-hidden="true"></i>
-                                    <div class="repayment-tooltip tooltip">
+                                    <i class="fa fa-info-circle tooltip-icon repayment-tooltip-click" aria-hidden="true"></i>
+                                    <div class="repayment tooltip">
                                         <?php echo esc_html($repayment_period_tooltip); ?>
                                     </div>
                                 </span>

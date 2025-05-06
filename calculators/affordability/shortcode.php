@@ -29,8 +29,8 @@ function kaleidico_affordability_calculator_shortcode($atts)
             <div class="tooltip-label-icon-container">
                 <label for="loan_term">Loan Term</label>
                 <span class="tooltip-group">
-                    <i class="fa fa-info-circle loan-term-tooltip-click" aria-hidden="true"></i>
-                    <div class="loan-term-tooltip tooltip">
+                    <i class="fa fa-info-circle tooltip-icon loan-term-tooltip-click" aria-hidden="true"></i>
+                    <div class="loan-term tooltip">
                         <?php the_field('loan_term_tooltip', 'option'); ?>
                     </div>
                 </span>
@@ -88,8 +88,8 @@ function kaleidico_affordability_calculator_shortcode($atts)
                 <div class="tooltip-label-icon-container">
                     <label for="down_payment">Down Payment</label>
                     <span class="tooltip-group">
-                        <i class="fa fa-info-circle down-payment-tooltip-click" aria-hidden="true"></i>
-                        <div class="down-payment-tooltip tooltip">
+                        <i class="fa fa-info-circle tooltip-icon down-payment-tooltip-click" aria-hidden="true"></i>
+                        <div class="down-payment tooltip">
                             <?php the_field('down_payment_tooltip', 'option'); ?>
                         </div>
                     </span>
