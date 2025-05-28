@@ -357,10 +357,12 @@
 }
 
 @media (max-width: 639px) {
-	.kaleidico-calculator .radio-group {
+	.kaleidico-calculator .radio-group,
+	.rental-roi-calculator .radio-group {
 		display: block;
 	}
-	.kaleidico-calculator input[type="radio"] + label {
+	.kaleidico-calculator input[type="radio"] + label,
+	.rental-roi-calculator input[type="radio"] + label {
 		margin-bottom: 16px;
 	}
 	.kaleidico-calculator .calculator-white-section,
@@ -621,15 +623,18 @@ table.heloc-amort-table tr:nth-of-type(even) {
 .tooltip.clicked {
 	background-color: #444;
 }
-.fix-and-flip-calculator .label-container {
+.fix-and-flip-calculator .label-container,
+.rental-roi-calculator .label-container {
 	display: flex;
 	align-items: top;
 	column-gap: 14px;
 }
-.fix-and-flip-calculator .input-group {
+.fix-and-flip-calculator .input-group,
+.rental-roi-calculator .input-group {
 	margin-bottom: 20px;
 }
-.fix-and-flip-calculator .percentage-sign {
+.fix-and-flip-calculator .percentage-sign,
+.rental-roi-calculator .percentage-sign {
 	transform: translateY(-120%);
 }
 .range-group {
@@ -658,6 +663,29 @@ table.heloc-amort-table tr:nth-of-type(even) {
 .fix-and-flip-result-total {
 	font-weight: bold;
 	font-size: 20px;
+}
+.rental-roi-calculator .show-hide-calculator-results-advanced {
+	margin-top: 32px;
+	margin-bottom: 16px;
+}
+.rental-roi-calculator + .kaleidico-calculator-disclaimer {
+	font-weight: bold;
+	margin-top: 24px;
+	cursor: pointer;
+}
+.rental-roi-calculator + .kaleidico-calculator-disclaimer .disclaimer-text {
+	font-weight: normal;
+	margin-top: 16px;
+	pointer-events: none;
+}
+.rental-roi-calculator-results {
+	margin-top: 0;
+}
+.rental-roi-calculator .calculator-grey-section {
+	padding-top: 0;
+}
+.rental-roi-calculator .result-value {
+	font-weight: bold;
 }
 @media (max-width: 834px) {
 	.fix-and-flip-calculator-results-row {
