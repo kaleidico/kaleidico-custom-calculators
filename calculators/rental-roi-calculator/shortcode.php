@@ -91,7 +91,7 @@ function kaleidico_rental_roi_calculator_shortcode($atts)
             kaleidico_rr_currency_input('other_expenses_rr', 'Other Expenses', $attr['other_expenses_rr'], 'other_expenses_tt_rr', 'other-expenses');
             ?>
 
-            <div class="input-group radio-group holding-period-group">
+            <div class="input-container holding-period-group">
                 <div class="label-container">
                     <label>Holding Period</label>
                     <span class="tooltip-group">
@@ -99,14 +99,17 @@ function kaleidico_rental_roi_calculator_shortcode($atts)
                         <div class="holding-period tooltip"><?php the_field('holding_period_tt_rr', 'option'); ?></div>
                     </span>
                 </div>
-                <div class="input-container">
-                    <?php foreach ([5, 10, 20, 30] as $yr): ?>
-                        <label class="radio-option">
-                            <input type="radio" name="holding_period_rr"
-                                value="<?= $yr; ?>" <?= $yr === 30 ? 'checked' : ''; ?> />
-                            <span><?= $yr; ?> yrs</span>
-                        </label>
+                <div class="radio-group">
+                    <?php foreach ([5, 10, 20, 30] as $yr):
+                        $id = 'holding_period_rr_' . $yr;
+                    ?>
+                        <input type="radio" name="holding_period_rr"
+                            id="<?= esc_attr($id); ?>"
+                            value="<?= esc_attr($yr); ?>"
+                            <?= $yr === 30 ? 'checked' : ''; ?> />
+                        <label class="radio-label" for="<?= esc_attr($id); ?>"><?= esc_html($yr); ?> yrs</label>
                     <?php endforeach; ?>
+
                 </div>
             </div>
 
@@ -124,26 +127,30 @@ function kaleidico_rental_roi_calculator_shortcode($atts)
         </div><!-- /.white -->
 
         <div class="calculator-grey-section">
-            <div class="rental-roi-calculator-results">
-                <div class="result-box">
-                    <div class="result-label">Gross Yield</div>
-                    <div class="result-value"><span id="gross_yield_rr"></span></div>
+            <div class="rental-roi-calculator-results calculator-results-advanced">
+                <div class="lc">
+                    <div class="result-box advanced-row">
+                        <div class="result-label">Gross Yield</div>
+                        <div class="result-value"><span id="gross_yield_rr"></span></div>
+                    </div>
+                    <div class="result-box advanced-row">
+                        <div class="result-label">Cap Rate</div>
+                        <div class="result-value"><span id="cap_rate_rr"></span></div>
+                    </div>
+                    <div class="result-box advanced-row">
+                        <div class="result-label">1 Yr Cash ROI</div>
+                        <div class="result-value"><span id="cash_roi_rr"></span></div>
+                    </div>
                 </div>
-                <div class="result-box">
-                    <div class="result-label">Cap Rate</div>
-                    <div class="result-value"><span id="cap_rate_rr"></span></div>
-                </div>
-                <div class="result-box">
-                    <div class="result-label">1 Yr Cash ROI</div>
-                    <div class="result-value"><span id="cash_roi_rr"></span></div>
-                </div>
-                <div class="result-box">
-                    <div class="result-label">Annual Return</div>
-                    <div class="result-value"><span id="annual_return_rr"></span></div>
-                </div>
-                <div class="result-box">
-                    <div class="result-label">Total Return</div>
-                    <div class="result-value"><span id="total_return_rr"></span></div>
+                <div class="rc">
+                    <div class="result-box advanced-row">
+                        <div class="result-label">Annual Return</div>
+                        <div class="result-value"><span id="annual_return_rr"></span></div>
+                    </div>
+                    <div class="result-box advanced-row">
+                        <div class="result-label">Total Return</div>
+                        <div class="result-value"><span id="total_return_rr"></span></div>
+                    </div>
                 </div>
             </div>
 
@@ -156,7 +163,7 @@ function kaleidico_rental_roi_calculator_shortcode($atts)
     </div><!-- /.calculator -->
 
     <?php if ($txt = get_field('rr_disclaimer_text', 'option')): ?>
-        <div class="calculator-disclaimer">
+        <div class="calculator-disclaimer kaleidico-calculator-disclaimer">
             <div class="show-disclaimer-text">Show Disclaimer <i class="fa fa-chevron-down"></i></div>
             <div class="hide-disclaimer-text" style="display:none;">Hide Disclaimer <i class="fa fa-chevron-up"></i></div>
             <div class="disclaimer-text" style="display:none;"><?= $txt; ?></div>
