@@ -42,7 +42,12 @@ function calculateAndDisplayAffordabilityDetails() {
 		(((propertyTaxAndFees + propertyInsurance) / 100) *
 			estimatedHomePrice) /
 		12;
-	var pmi = (loanAmount * 0.0055) / 12; // Example PMI calculation
+	var pmi = 0;
+	if (downPaymentPercentage >= 20) {
+		pmi = 0;
+	} else {
+		pmi = (loanAmount * 0.0055) / 12;
+	}
 
 	var totalMonthlyPayment = principalAndInterest + taxAndInsurance + pmi;
 
