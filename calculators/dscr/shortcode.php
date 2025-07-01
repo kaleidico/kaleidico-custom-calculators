@@ -133,7 +133,7 @@ function kaleidico_dscr_calculator_shortcode($atts)
                     </div>
                 </div>
                 <div class="rc">
-                    <div class="stick-it">
+                    <div class="sticky top-2">
                         <div class="advanced-summary">
                             <div class="summary-item">
                                 <span class="summary-label">Cash Flow (Annual)</span>
