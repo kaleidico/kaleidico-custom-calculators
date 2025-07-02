@@ -11,7 +11,7 @@ function kaleidico_affordability_calculator_shortcode($atts)
     */
     $attributes = shortcode_atts(array(
         'down_payment_percentage' => get_field('affordability_calc_down_payment_percentage', 'option'),
-        'loan_term' => '', // Default to empty, expecting a comma-separated list if provided
+        'loan_term' => get_field('affordability_calc_loan_term', 'option'), // Default from ACF, can be overridden by shortcode
         'monthly_income' => get_field('affordability_calc_monthly_income', 'option'),
         'monthly_expenses' => get_field('affordability_calc_monthly_expenses', 'option'),
         'interest_rate' => get_field('affordability_calc_interest_rate', 'option'),
@@ -31,7 +31,7 @@ function kaleidico_affordability_calculator_shortcode($atts)
                 <span class="tooltip-group">
                     <i class="fa fa-info-circle tooltip-icon loan-term-tooltip-click" aria-hidden="true"></i>
                     <div class="loan-term tooltip">
-                        <?php the_field('loan_term_tooltip', 'option'); ?>
+                        <?php the_field('affordability_calc_loan_term_tooltip', 'option'); ?>
                     </div>
                 </span>
             </div>
@@ -50,9 +50,9 @@ function kaleidico_affordability_calculator_shortcode($atts)
                     }
                 } else {
                     // Fallback to repeater field if no attribute is provided
-                    if (have_rows('terms', 'option')) :
+                    if (have_rows('affordability_calc_terms', 'option')) :
                         $counter = 0; // Initialize counter
-                        while (have_rows('terms', 'option')) : the_row();
+                        while (have_rows('affordability_calc_terms', 'option')) : the_row();
                             $term_label = get_sub_field('term_label');
                             $term_value = get_sub_field('term_value');
                         ?>
@@ -90,7 +90,7 @@ function kaleidico_affordability_calculator_shortcode($atts)
                     <span class="tooltip-group">
                         <i class="fa fa-info-circle tooltip-icon down-payment-tooltip-click" aria-hidden="true"></i>
                         <div class="down-payment tooltip">
-                            <?php the_field('down_payment_tooltip', 'option'); ?>
+                            <?php the_field('affordability_calc_down_payment_tooltip', 'option'); ?>
                         </div>
                     </span>
                 </div>
