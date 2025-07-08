@@ -22,12 +22,9 @@ They are displayed by a shortcode.
 
 == Changelog ==
 
-<<<<<<< HEAD
-=======
 = 2.8.5 =
 Cosmetic changes to the HELOC form for different container widths.
 
->>>>>>> master
 = 2.4.1 =
 * Added a DSCR calculator. This will require an ACF import.
 
