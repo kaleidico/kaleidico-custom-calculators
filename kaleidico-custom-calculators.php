@@ -2,7 +2,11 @@
 /*
 Plugin Name: Kaleidico Custom Calculators
 Description: This is a plugin containing mortgage calculators for Kaleidico.
+<<<<<<< HEAD
 Version: 2.8.4
+=======
+Version: 2.8.5
+>>>>>>> master
 Author: Angelo Marasa
 Author URI: https://github.com/angelo-marasa
 */
