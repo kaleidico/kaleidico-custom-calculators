@@ -463,9 +463,12 @@
 /* ------------------------------- */
 
 /* Updated flex container for columns */
+.heloc-calculator {
+	max-width: 768px !important;
+	margin: auto !important;
+}
 .heloc-calculator-container {
-	display: flex;
-	flex-wrap: wrap;
+	display: block !important;
 	gap: 20px; /* Adjust gap between columns if needed */
 }
 .kaleidico-calculator .summary-item {
@@ -473,12 +476,12 @@
 }
 /* Adjusted column widths to account for gap; use box-sizing for padding */
 .heloc-calculator-lc {
-	width: calc(30% - 20px);
+	width: 100% !important;
 	box-sizing: border-box;
 }
 
 .heloc-calculator-rc {
-	width: calc(70% - 20px);
+	width: 100% !important;
 	box-sizing: border-box;
 }
 
