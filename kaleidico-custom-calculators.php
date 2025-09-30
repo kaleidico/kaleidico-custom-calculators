@@ -2,23 +2,34 @@
 /*
 Plugin Name: Kaleidico Custom Calculators
 Description: This is a plugin containing mortgage calculators for Kaleidico.
-Version: 2.9
+Version: 2.91
 Author: Angelo Marasa
 Author URI: https://github.com/angelo-marasa
 */
 
 // ------------------------------------------------------------------------------
-// Updater Integration (GitHub-based)
+// Updater Integration (GitHub-based) - DISABLED
 // ------------------------------------------------------------------------------
-require 'puc/plugin-update-checker.php';
+// require 'puc/plugin-update-checker.php';
 
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+// use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
-$myUpdateChecker = PucFactory::buildUpdateChecker(
-    'https://github.com/kaleidico/kaleidico-custom-calculators',
-    __FILE__,
-    'kaleidico-custom-calculators'
-);
+// $myUpdateChecker = PucFactory::buildUpdateChecker(
+//     'https://github.com/kaleidico/kaleidico-custom-calculators',
+//     __FILE__,
+//     'kaleidico-custom-calculators'
+// );
+
+// // Add GitHub authentication for private repositories
+// // You can either use a personal access token or set authentication via environment variable
+// // Option 1: Personal Access Token (create one at https://github.com/settings/tokens)
+// // $myUpdateChecker->setAuthentication('your-github-token-here');
+
+// // Option 2: Get token from environment variable or WordPress option
+// $github_token = get_option('github_access_token', '') ?: getenv('GITHUB_ACCESS_TOKEN');
+// if (!empty($github_token)) {
+//     $myUpdateChecker->setAuthentication($github_token);
+// }
 // Cleanup legacy license data
 function kaleidico_custom_calculators_cleanup_legacy_license_data()
 {
